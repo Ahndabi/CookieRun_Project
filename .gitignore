@@ -362,3 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /Assets/Asset
+/Library
+/Assets/Import/Character/Basic Charactor
+/Assets/Import/Stage1Map/ovenbreak0001_tm001
