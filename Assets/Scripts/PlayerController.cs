@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
 	{
 		Slide();
 		Debug.DrawRay(transform.position, Vector3.down * 2f, Color.green);
-		Land();
 	}
 
 	void Jump()
@@ -59,24 +58,16 @@ public class PlayerController : MonoBehaviour
 		// 이거 계속 안 됐던 이유가 2.1f가 아니라 1.5였음.. Debug.DrawRay로 그려주니까 엄청 짧아있었음
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 2f, LayerMask.GetMask("Ground"));
 		// Debug.DrawRay(transform.position, Vector3.down * 2f, Color.green);	// 레이어 그려주기
-		if (hit.collider != null)
+
+		if (hit.collider != null)	// 레이어 부딪힌 게 있는 경우
 		{
 			isGrounded = true;
 			oneJump = false;		// 바닥이니까 1단점프를 false로
 		}
-		else
+		else 
 			isGrounded = false;
-
+		
 		return isGrounded;
-	}
-
-	void Land()		// 착지
-	{
-		// 바닥에 닿았는데 현재 Move 애니메이션이 아닐 때 (즉 점프했다가 착지함)
-		if(GroundCheck() && !anim.GetCurrentAnimatorStateInfo(0).IsName("Move"))
-		{
-			anim.SetTrigger("Land");
-		}
 	}
 
 	void Slide()

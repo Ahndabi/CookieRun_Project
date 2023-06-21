@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2195707198058841857}
   - component: {fileID: 2195707198058841869}
   - component: {fileID: 2195707198058841870}
-  - component: {fileID: 382410955}
+  - component: {fileID: 691205202}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2195707198058841860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 2119205467
   m_SortingLayer: -1
   m_SortingOrder: 50
-  m_Sprite: {fileID: -2123031972, guid: 31df7384c539b13438c5720c2f8d762e, type: 3}
+  m_Sprite: {fileID: 1561882603, guid: 4c5b8dc00c227f3488591c5512b48b57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,8 +145,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 10.875, y: 12.3125}
+  m_Offset: {x: 0.037344396, y: 0.22393286}
+  m_Size: {x: 7.215214, y: 8.690333}
   m_Direction: 0
 --- !u!114 &2195707198058841869
 MonoBehaviour:
@@ -191,19 +191,29 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!70 &382410955
-CapsuleCollider2D:
+--- !u!61 &691205202
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2195707198058841860}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 10.4375, y: 4.125}
-  m_Direction: 1
+  m_Offset: {x: 0.42012978, y: 0.00000011920929}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.5, y: 8.5}
+    newSize: {x: 10.875, y: 12.3125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.348562, y: 4.018631}
+  m_EdgeRadius: 0
