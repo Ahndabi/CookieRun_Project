@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3233245642710116769}
   - component: {fileID: 377048127}
   m_Layer: 0
-  m_Name: SlideSet2
+  m_Name: SlideSet1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

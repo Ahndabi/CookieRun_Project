@@ -8,7 +8,7 @@ public class ObstacleSpawn : MonoBehaviour
 	// Point1에서 Set1을 소환하거나 Point2에서 Set2를 소환하거나를 랜덤으로 계속 생성
 
 	[SerializeField] Transform[] spawnPoint;  // 장애물 및 아이템 부활 지점
-	[SerializeField] float spawnTime;       // 부활 쿨타임
+	[SerializeField] float spawnTime;		  // 부활 쿨타임
 	[SerializeField] GameObject[] SetPrefab;  // 장애물 및 아이템 세트 프리팹
 
 

@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO : RuntimeInitializeOnLoadMethod 이거 추가해줘야 함
-
 public class GameManager : MonoBehaviour
 {
 	public const string DefaultName = "Manager";
@@ -11,10 +9,13 @@ public class GameManager : MonoBehaviour
 	private static GameManager instance;
 	private static DataManager dataManager;
 	private static PoolManager poolManager;
+	private static HPManager hpManager;
 
 	public static GameManager Instance { get { return instance; } }
 	public static DataManager Data { get { return dataManager; } }
 	public static PoolManager Pool { get { return poolManager; } }
+	public static HPManager HP { get { return hpManager; } }
+
 
 	private void Awake()
 	{
@@ -45,5 +46,10 @@ public class GameManager : MonoBehaviour
 		poolObj.name = "PoolManager";
 		poolObj.transform.parent = transform;
 		poolManager = poolObj.AddComponent<PoolManager>();
+
+		GameObject hpObj = new GameObject() { name = "HPManager" };
+		hpObj.transform.SetParent(transform);
+		hpManager = hpObj.AddComponent<HPManager>();
+
 	}
 }
