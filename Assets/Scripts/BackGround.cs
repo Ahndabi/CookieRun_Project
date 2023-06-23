@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackGround : MonoBehaviour
 {
-	[SerializeField] float speed;
+	[SerializeField] public float speed;
 	MeshRenderer renderer;
 	float x = 0;
 	float y = 0;
@@ -18,6 +18,7 @@ public class BackGround : MonoBehaviour
 	{
 		renderer.material.mainTextureOffset = new Vector2(x, y);
 		x = x + Time.deltaTime * speed;
+
 		/*
 		x += (speed * Time.deltaTime);
 

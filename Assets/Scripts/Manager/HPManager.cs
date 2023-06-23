@@ -23,6 +23,6 @@ public class HPManager : MonoBehaviour
 	// HP가 0이 될 때까지 시간이 지나면서 계속 HP가 감소한다.
 	public void ChangedHP()
 	{
-		curHP -= Time.deltaTime * 3;
+		curHP -= Time.deltaTime * 5;
 	}
 }
