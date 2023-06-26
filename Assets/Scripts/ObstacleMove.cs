@@ -6,6 +6,11 @@ public class ObstacleMove : MonoBehaviour
 {
 	[SerializeField] float ScrollSpeed;
 
+	private void Start()
+	{
+		ScrollSpeed = 10.5f;
+	}
+
 	private void Update()
 	{
 		Move();

@@ -16,6 +16,12 @@ public class HeartLife : Item
 		if (col.gameObject.tag == "Player")
 		{
 			Contact();
+			ChargeHeartUI();
 		}
+	}
+
+	void ChargeHeartUI()	// UI의 HeartLife 바 충전하는 함수
+	{
+		GameManager.HP.curHP += 10f;
 	}
 }
