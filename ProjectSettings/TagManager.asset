@@ -4,13 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - bullet
-  - Asteroid
   - Ground
   - Obstacle
-  - SilverCoin
-  - Jelly1
-  - HeartLife
   layers:
   - Default
   - TransparentFX

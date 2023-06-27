@@ -11,7 +11,6 @@ public class ObstacleSpawn : MonoBehaviour
 	[SerializeField] float spawnTime;		  // 부활 쿨타임
 	[SerializeField] GameObject[] SetPrefab;  // 장애물 및 아이템 세트 프리팹
 
-
 	private void OnEnable()
 	{
 		StartCoroutine(SpawnRoutine());

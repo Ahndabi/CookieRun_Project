@@ -7,7 +7,24 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-	public abstract void Contact();		// 플레이어랑 닿았을 때 함수
-	// 1. Destroy
-	// 2. UI점수 올리기
+	[SerializeField] float ScrollSpeed;
+
+	public abstract void Contact();     // 플레이어랑 닿았을 때 함수
+										// 1. Destroy
+										// 2. UI점수 올리기
+	private void Start()
+	{
+		ScrollSpeed = 10.5f;
+	}
+
+	private void Update()
+	{
+		Move();
+	}
+
+	void Move()
+	{
+		gameObject.transform.Translate(Vector2.left * ScrollSpeed * Time.deltaTime);
+		Destroy(gameObject, 5f);
+	}
 }

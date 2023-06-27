@@ -922,7 +922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1260753559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,6 +969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1265386443}
   - component: {fileID: 1265386444}
+  - component: {fileID: 1265386445}
   m_Layer: 0
   m_Name: CSV
   m_TagString: Untagged
@@ -1004,25 +1005,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrollSpeed: 10.5
-  JumpOb: {fileID: 0}
-  SlideOb: {fileID: 0}
---- !u!1 &1363120060 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4896873987433391964, guid: b1b22a37162a6eb4ea459951eec1635b, type: 3}
-  m_PrefabInstance: {fileID: 1026704477}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1363120064
+--- !u!114 &1265386445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363120060}
+  m_GameObject: {fileID: 1265386441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d74ad9efe411049b1059f617be49b4, type: 3}
+  m_Script: {fileID: 11500000, guid: b629346c4b2bbfd4a9d9e20861671975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScrollSpeed: 10.5
+  EmptyOb: {fileID: 0}
+  ItemPrefabs:
+  - {fileID: 2250362142640287348, guid: 50035c7f2936f5f4b866f8c7065c63a3, type: 3}
+  - {fileID: 8839362086381790683, guid: 6a4d306738ed2e94ab61f4d79d75fc1b, type: 3}
+  - {fileID: 6075963066404930401, guid: 5c76349e4fc68fa4a841199464eb2a2a, type: 3}
+  - {fileID: 1421231221122428025, guid: 185f9dd88e16fe64e815eaae55b3c72f, type: 3}
 --- !u!1 &1363277777
 GameObject:
   m_ObjectHideFlags: 0
