@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
 {
 	[SerializeField] float jumpSpeed;
 	bool isGrounded = true;
-	bool oneJump = false;		// 1단 점프를 한 번 했는지
+	bool oneJump = false;       // 1단 점프를 한 번 했는지
+	bool isSlide = false;
 
 	Rigidbody2D rb;
 	Animator anim;
@@ -21,11 +22,11 @@ public class PlayerController : MonoBehaviour
 
 	private void Update()
 	{
-		Slide();
+		// Slide();
 		Debug.DrawRay(transform.position, Vector3.down * 2f, Color.green);
 	}
 
-	void Jump()
+	public void Jump()
 	{
 		// 2단 점프만 가능하도록 
 		if (GroundCheck())       // 1. 바닥이면 점프가능
@@ -70,16 +71,18 @@ public class PlayerController : MonoBehaviour
 		return isGrounded;
 	}
 
-	void Slide()
+	void OnSlide(InputValue value)
 	{
-		// GetKeyDown : 키를 누르고 있는 동안 anim.Slide 하도록
-		if (Input.GetKeyDown(KeyCode.S))
-		{
-			anim.SetBool("Slide", true);
-		}
-		if (Input.GetKeyUp(KeyCode.S)) 
-		{
-			anim.SetBool("Slide", false);
-		}
+		Slide();
+	}
+
+	public void Slide()
+	{
+		anim.SetTrigger("Slide");
+	}
+
+	public void Move()
+	{
+		anim.SetTrigger("Move");
 	}
 }

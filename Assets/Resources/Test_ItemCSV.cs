@@ -66,13 +66,6 @@ public class Test_ItemCSV : MonoBehaviour
 				int a = Random.Range(0, ItemPrefabs.Length);	// 아이템은 랜덤으로 지정됨
 
 				y = float.Parse(values[i]);         // 두 번째부터 y값으로 읽기	
-				/*
-				if (float.Parse(values[i]) == 0)
-				{
-					yield return new WaitForSeconds(spawnTime);
-
-					continue;
-				}*/
 
 				Instantiate(ItemPrefabs[a], new Vector3(20, y, 0), Quaternion.identity);
 

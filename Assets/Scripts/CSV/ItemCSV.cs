@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ItemCSV : MonoBehaviour
 {
-
 	[SerializeField] float ScrollSpeed = 10.5f;     // 이동속도
 	GameObject Blue;   // 아이템 프리팹
 	GameObject Bear;   // 아이템 프리팹
@@ -53,33 +52,7 @@ public class ItemCSV : MonoBehaviour
 	}
 
 	IEnumerator ItemRoutine()
-	{/*
-		while (true)
-		{
-			foreach (string line in lines)
-			{
-				values = line.Split(',');   // 줄을 구분자로 분리하여 값 얻기
-
-				x = float.Parse(values[1]);
-				y = float.Parse(values[2]);
-				spawnTime = float.Parse(values[3]);
-
-				if (values[0] == "Blue")
-				{
-					Instantiate(Blue, new Vector3(x, y, 0), Quaternion.identity);     // Blue 아이템 생성
-					Destroy(gameObject, 5f);
-				}
-
-				else if (values[0] == "Bear")
-				{
-					Instantiate(Bear, new Vector3(x, y, 0), Quaternion.identity);     // Bear 아이템 생성
-					Destroy(gameObject, 5f);
-				}
-
-				yield return new WaitForSeconds(spawnTime);
-			}
-		}*/
-
+	{
 		foreach (string line in lines)
 		{
 			values = line.Split(',');       // ,로 구분하여 하나의 값 얻기
@@ -114,11 +87,7 @@ public class ItemCSV : MonoBehaviour
 
 				}
 				yield return new WaitForSeconds(spawnTime);
-
 			}
-
 		}
-		
-		// value[0] 값 (아이템 종류대로) 대로 코루틴을 다 다르게 해서 동시에 시작하면 되잔아
 	}
 }
