@@ -49,7 +49,7 @@ public class TakeDamage : MonoBehaviour
 		}
 	}
 
-	void IgnoreLayer()	// 2초 동안 무적상태
+	void IgnoreLayer()	// 2초 동안 장애물 통과
 	{
 		Physics2D.IgnoreLayerCollision(3, 8);           // 장애물 콜라이더(레이어) 무시하기
 	}

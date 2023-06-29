@@ -8,11 +8,6 @@ public class TriggerCheck : MonoBehaviour
 	[SerializeField] GameObject CheckObj;
 	float checkTime = 8;    // 원래 10초인데 확인하기 빠르게 하려고 8초로 함
 
-	private void OnTriggerEnter2D(Collider col)
-	{
-		
-	}
-
 
 	private void Start()
 	{
