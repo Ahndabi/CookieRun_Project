@@ -82,7 +82,10 @@ public class UIManager : MonoBehaviour
 		}
 	}
 
+
 	/*
+	 * WindowUI랑 InGameUI는 아직 안 써서 주석해놨음
+	 * 
 	public T ShowWindowUI<T>(T windowUI) where T : WindowUI
 	{
 		T ui = GameManager.Pool.GetUI(windowUI);
