@@ -22,6 +22,8 @@ public class BaseUI : MonoBehaviour
 		buttons = new Dictionary<string, Button>();
 		texts = new Dictionary<string, TMP_Text>();
 
+		// 전체 게임오브젝트를 순회
+		// RectTransform은 모든 게임오브젝트에 있기 때문에 다 찾아짐.
 		RectTransform[] children = GetComponentsInChildren<RectTransform>();
 		foreach (RectTransform child in children)
 		{
