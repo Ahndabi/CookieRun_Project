@@ -8,8 +8,15 @@ public class SettingPopUpUI : PopUpUI
 	{
 		base.Awake();
 
-		//buttons["SaveButton"].onClick.AddListener(() => { CloseUI(); });
-		//buttons["CancelButton"].onClick.AddListener(() => { CloseUI(); });
-		buttons["StopButton"].onClick.AddListener(() => { CloseUI(); });
+		buttons["StopButton"].onClick.AddListener(() => { OpenPausePopUpUI(); });
+		buttons["ContinueButton"].onClick.AddListener(() => { GameManager.UI.ClosePopUpUI(); });
+
+	}
+
+	public void OpenPausePopUpUI()
+	{
+		Debug.Log("StopButton");
+		//GameManager.UI.ShowPopUpUI<PopUpUI>("UI/PausePopUpUI");
+
 	}
 }

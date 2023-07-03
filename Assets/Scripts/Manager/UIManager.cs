@@ -25,16 +25,32 @@ public class UIManager : MonoBehaviour
 		popUpCanvas.sortingOrder = 100;
 		popUpStack = new Stack<PopUpUI>();
 
-		windowCanvas = GameManager.Resource.Instantiate<Canvas>("UI/Canvas");
+		windowCanvas = GameManager.Resource.Instantiate<Canvas>("UI/Canvas");	// ¾ÆÁ÷ ¾È¾¸
 		windowCanvas.gameObject.name = "WindowCanvas";
 		windowCanvas.sortingOrder = 10;
 
 		// gameSceneCanvas.sortingOrder = 1;
 
-		inGameCanvas = GameManager.Resource.Instantiate<Canvas>("UI/Canvas");
+		inGameCanvas = GameManager.Resource.Instantiate<Canvas>("UI/Canvas");	// ¾ÆÁ÷ ¾È¾¸
 		inGameCanvas.gameObject.name = "InGameCanvas";
 		inGameCanvas.sortingOrder = 0;
 	}
+
+	/*
+	public void ShowPopUpUI(PopUpUI popUpUI)
+	{
+		PopUpUI ui = GameManager.Pool.GetUI(popUpUI);
+		ui.transform.SetParent(popUpCanvas.transform, false);
+
+		Time.timeScale = 0;
+	}
+
+	public void ShowPopUpUI(string path)
+	{
+		PopUpUI ui = GameManager.Resource.Load<PopUpUI>(path);
+		ShowPopUpUI(ui);
+	}*/
+
 
 	public T ShowPopUpUI<T>(T popUpUI) where T : PopUpUI
 	{
