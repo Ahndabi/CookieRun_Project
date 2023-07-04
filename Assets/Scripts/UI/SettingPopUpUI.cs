@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class SettingPopUpUI : PopUpUI
 {
+
 	protected override void Awake()
 	{
 		base.Awake();
 
 		buttons["StopButton"].onClick.AddListener(() => { OpenPausePopUpUI(); });
 		buttons["ContinueButton"].onClick.AddListener(() => { GameManager.UI.ClosePopUpUI(); });
-
 	}
 
 	public void OpenPausePopUpUI()
 	{
 		Debug.Log("StopButton");
-		//GameManager.UI.ShowPopUpUI<PopUpUI>("UI/PausePopUpUI");
+		GameManager.UI.ShowPopUpUI<PopUpUI>("UI/PausePopUpUI");
 
 	}
 }

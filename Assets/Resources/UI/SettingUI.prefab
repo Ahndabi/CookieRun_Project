@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7373918994215382024}
   - component: {fileID: 7373918994215382025}
   m_Layer: 5
-  m_Name: StopButton
+  m_Name: PauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,6 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7373918994842166137}
+  - component: {fileID: 6979726477795187285}
   m_Layer: 5
   m_Name: SettingUI
   m_TagString: Untagged
@@ -158,3 +159,15 @@ RectTransform:
   m_AnchoredPosition: {x: -95, y: -95}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6979726477795187285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7373918994842166138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ebe2fa2ec78a68448a9376ef0ce2750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

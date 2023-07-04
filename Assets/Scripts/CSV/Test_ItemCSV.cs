@@ -35,7 +35,7 @@ public class Test_ItemCSV : MonoBehaviour
 	{
 		TextAsset csvFile = Resources.Load("ItemCSV") as TextAsset;
 		string csvText = csvFile.text;
-		Debug.Log(csvText);
+		//Debug.Log(csvText);
 
 		if (csvFile != null)
 		{

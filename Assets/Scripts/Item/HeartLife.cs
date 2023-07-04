@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class HeartLife : Item
 {
-	// UI의 HeartLife 바를
-	// 
 	public override void Contact()
 	{
 		Destroy(gameObject);
@@ -22,6 +20,6 @@ public class HeartLife : Item
 
 	void ChargeHeartUI()	// UI의 HeartLife 바 충전하는 함수
 	{
-		GameManager.HP.curHP += 10f;
+		GameManager.UI.curHP += 15f;
 	}
 }

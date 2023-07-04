@@ -39,12 +39,11 @@ public class TakeDamage : MonoBehaviour
 		// 장애물을 통과하면 다치는 애니메이션 실행
 		if (col.gameObject.tag == "Obstacle")
 		{
-			OnTakeDamage?.Invoke();
-			//anim.SetTrigger("TakeDamage");
-			InvokeRepeating("IgnoreLayer", 0f, 0f);   // Invincibility 함수를 반복해서 계속 호출
-			Invoke("CancleLayerCollision", 2f);         // 2초 뒤에 Invicibility를 취소시키는 함수 호출
 			DecreaseHP();   // HP 감소
+			OnTakeDamage?.Invoke();
 			CameraShake();
+			InvokeRepeating("IgnoreLayer", 0f, 0f);		// Invincibility 함수를 반복해서 계속 호출
+			Invoke("CancleLayerCollision", 2f);         // 2초 뒤에 Invicibility를 취소시키는 함수 호출
 			Invoke("StopCameraShake", 0.1f);
 		}
 	}
@@ -72,7 +71,7 @@ public class TakeDamage : MonoBehaviour
 
 	void DecreaseHP()
 	{
-		GameManager.HP.TakeDamageHP(10);	// 10씩 데미지 받으면서 hp가 감소
+		GameManager.UI.TakeDamageHP(10);	// 10씩 데미지 받으면서 hp가 감소
 	}
 
 	void CameraShake()		// 카메라 흔들리기

@@ -19,7 +19,7 @@ public class HPbarUI : MonoBehaviour
 
 	void DecreaseHPBar()
 	{
-		GameManager.HP.ChangedHP();
-		Hpbar.value = GameManager.HP.curHP;
+		GameManager.UI.ChangedHP();
+		Hpbar.value = GameManager.UI.curHP;
 	}
 }

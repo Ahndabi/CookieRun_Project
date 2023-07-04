@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 	public bool isJump = false;
 
 	Rigidbody2D rb;
-	Animator anim;
+	public Animator anim;
 
 	private void Awake()
 	{
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 	private void Update()
 	{
 		Debug.DrawRay(transform.position, Vector3.down * 2f, Color.green);
+		Debug.Log(GroundCheck());
 	}
 
 	public void Jump()
@@ -69,7 +70,7 @@ public class PlayerController : MonoBehaviour
 			isGrounded = false;
 
 		// 1단 점프 시작할 땐 isGround가 true로 뜨고, 2단 점프 시작할 땐 false로 뜸! 잘 맞게 뜨는 거임 2단점프만을 위한 groundcheck라서
-		Debug.Log(isGrounded);
+		// Debug.Log(isGrounded);
 		return isGrounded;
 	}
 

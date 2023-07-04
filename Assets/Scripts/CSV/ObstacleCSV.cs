@@ -29,7 +29,7 @@ public class ObstacleCSV : MonoBehaviour
 	{
 		TextAsset csvFile = Resources.Load("ObstacleCSV") as TextAsset;
 		string csvText = csvFile.text;
-		Debug.Log(csvText);
+		//Debug.Log(csvText);
 
 		if (csvFile != null)
 		{
