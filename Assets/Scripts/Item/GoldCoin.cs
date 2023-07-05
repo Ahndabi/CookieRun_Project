@@ -7,7 +7,7 @@ public class GoldCoin : Item
 	public override void Contact()
 	{
 		Destroy(gameObject);
-		GameManager.Data.AddCoinCount(5);  // 골드코인 먹으면 점수 5씩 증가
+		GameManager.Data.AddCoinCount(10);  // 골드코인 먹으면 점수 5씩 증가
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)

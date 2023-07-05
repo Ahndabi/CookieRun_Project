@@ -37,12 +37,16 @@ public class PlayerDie : MonoBehaviour
 
 	void Die()
 	{
+		// 3초 뒤에 점수 UI 보여야 함
+		// GameResultUI 활성화 시켜야됨
+		// GameManager.UI.ShowPopUpUI<PopUpUI>("UI/GameResultUI"); << 이건 됨
+		Invoke("ShowGameResultUI", 2f);
+
 		OnDie?.Invoke();
 
 		// 현재 Player는 비활성화, DiePlayer 활성화
 		DiePlayer.SetActive(true);
 		Player.SetActive(false);
-		//gameObject.SetActive(false);
 
 		// 시간 멈춤. 애니메이션은 Animator에서 Update Mode는 Unscaled Time으로 설정해서 애니메이션만 진행되게 함
 		Time.timeScale = 0;
@@ -52,7 +56,11 @@ public class PlayerDie : MonoBehaviour
 
 		// inputsystem 비활성화. 점프 안되게
 		inputSystem.enabled = false;
+	}
 
-		// 3초 뒤에 점수 UI 보여야 함
+	void ShowGameResultUI()
+	{
+		Debug.Log("ShowGameResultUI 함수 실행");
+		GameManager.UI.ShowPopUpUI<PopUpUI>("UI/GameResultUI");
 	}
 }

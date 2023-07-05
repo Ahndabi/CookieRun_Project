@@ -15,8 +15,6 @@ public class SettingPopUpUI : PopUpUI
 
 	public void OpenPausePopUpUI()
 	{
-		Debug.Log("StopButton");
 		GameManager.UI.ShowPopUpUI<PopUpUI>("UI/PausePopUpUI");
-
 	}
 }

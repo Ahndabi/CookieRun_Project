@@ -6,7 +6,7 @@ using UnityEngine;
 public class JellyUI : MonoBehaviour
 {
 	// Jelly 충돌체랑 닿을 때마다 AddCount 함수 불러오기
-	TMP_Text JellyCountView;
+	public TMP_Text JellyCountView;
 
 	private void Awake()
 	{

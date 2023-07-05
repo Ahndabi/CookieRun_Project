@@ -17,7 +17,6 @@ public class PausePopUpUI : SceneUI		// 일시정지 UI는 Scene에 있는 거라서 SceneU
 	public void OpenPausePopUpUI()
 	{
 		Debug.Log("Pause 버튼");
-		//playerController.anim.updateMode = AnimatorUpdateMode.Normal;
 		GameManager.UI.ShowPopUpUI<PopUpUI>("UI/PausePopUpUI");
 	}
 }

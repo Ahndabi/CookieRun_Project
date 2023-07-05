@@ -7,6 +7,7 @@ public class BearJelly : Item
 	public override void Contact()
 	{
 		Destroy(gameObject);
+		GameManager.Data.AddJellyCount(22);  // 곰돌이 젤리 먹으면 점수 22씩 증가
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)

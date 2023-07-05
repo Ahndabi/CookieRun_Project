@@ -8,8 +8,8 @@ public class DataManager : MonoBehaviour
 	// 플레이어 레벨, 스텟 등
 
 	// 여기에 젤리, 코인 먹는 UI 데이터 구현할 거임
-	[SerializeField] int JellyCount;
-	[SerializeField] int CoinCount;
+	public int JellyCount;
+	public int CoinCount;
 
 	public UnityAction<int> OnJellyChanged;
 	public UnityAction<int> OnCointChanged;

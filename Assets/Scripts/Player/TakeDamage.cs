@@ -13,9 +13,6 @@ public class TakeDamage : MonoBehaviour
 	// 5. 카메라 흔들림 1초	0
 	// HP가 30% 정도 남으면 배경 벌겋게 깜빡깜빡거림
 
-
-	// 투명화를 애니메이션으로?
-
 	Vector3 cameraPos;
 	Animator anim;
 	SpriteRenderer sp;
@@ -42,32 +39,65 @@ public class TakeDamage : MonoBehaviour
 			DecreaseHP();   // HP 감소
 			OnTakeDamage?.Invoke();
 			CameraShake();
-			InvokeRepeating("IgnoreLayer", 0f, 0f);		// Invincibility 함수를 반복해서 계속 호출
-			Invoke("CancleLayerCollision", 2f);         // 2초 뒤에 Invicibility를 취소시키는 함수 호출
-			Invoke("StopCameraShake", 0.1f);
+
+			StartCoroutine(IgnoreLayerRoutine());			// 2초 동안 IgnoreLayer 함수를 반복해서 계속 호출
+			StartCoroutine(CancleLayerCollisionRoutine());  // 2초 뒤에 Invicibility를 취소시키는 함수 호출
+			StartCoroutine(StopCameraShakeRoutine());		// 카메라 흔드는 함수 호출
+			//StartCoroutine(PlayerTransparencyRoutine());	// 플레이어 투명화
 		}
 	}
 
-	void IgnoreLayer()	// 2초 동안 장애물 통과
+	private void OnDisable()
 	{
-		Physics2D.IgnoreLayerCollision(3, 8);           // 장애물 콜라이더(레이어) 무시하기
+		StopAllCoroutines();
 	}
 
-	/*
+	IEnumerator IgnoreLayerRoutine()
+	{
+		Physics2D.IgnoreLayerCollision(3, 8);           // 장애물 콜라이더(레이어) 무시하기
+		yield return new WaitForSeconds(2f);
+	}
+
+	IEnumerator CancleLayerCollisionRoutine()
+	{
+		yield return new WaitForSeconds(2f);
+		Physics2D.IgnoreLayerCollision(3, 8, false);    // 다시 레이어 체크
+	}
+
+	IEnumerator StopCameraShakeRoutine()
+	{
+		yield return new WaitForSeconds(0.1f);
+		Camera.main.transform.position = cameraPos;		// 카메라 위치 원상복구
+	}
+
+
+
+	// 플레이어 투명화 하는 거 코루틴으로 0.1초마다 반복하게 하면 되지않낭?
+	IEnumerator PlayerTransparencyRoutine()
+	{/*
+		WaitForSeconds waitsec = new WaitForSeconds(0.2f);
+		 
+		// 여기서 기본으로 돌아가는거
+
+		for (int i = 0; i < 2; i++)
+		{
+			PlayerTransparency();
+			yield return waitsec;
+		}*/
+
+		PlayerTransparency();
+		yield return new WaitForSeconds(2f);
+	}
+
+
 	void PlayerTransparency()		// 플레이어 투명화
 	{
 		Color matColor = mat.color;
 		matColor.a = 0.5f;
 		mat.color = matColor;
 		// 여기서 invoke로 0.1초 뒤에 플레이어 원래 투명도로 돌아오는 함수 호출하기
-	}*/
-
-
-	void CancleLayerCollision()
-	{
-		CancelInvoke("invincibility");
-		Physics2D.IgnoreLayerCollision(3, 8, false);	// 다시 레이어 체크
 	}
+
 
 	void DecreaseHP()
 	{
@@ -76,8 +106,8 @@ public class TakeDamage : MonoBehaviour
 
 	void CameraShake()		// 카메라 흔들리기
 	{
-		float x = Random.Range(0f, 0.7f);
-		float y = Random.Range(0f, 0.7f);
+		float x = Random.Range(0f, 0.8f);
+		float y = Random.Range(0f, 0.8f);
 
 		Camera.main.transform.position += new Vector3(x, y, 0);
 	}
