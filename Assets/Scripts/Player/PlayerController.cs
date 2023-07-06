@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
 	private void Update()
 	{
-		Debug.DrawRay(transform.position, Vector3.down * 2f, Color.green);
+		//Debug.DrawRay(transform.position, Vector3.down * 2.5f, Color.green);		<< 이거 bigger 상태로 돼 있음 2.5
 	}
 
 	public void Jump()
@@ -58,7 +58,20 @@ public class PlayerController : MonoBehaviour
 	{
 		// 바닥인지 체크하고 2단 점프만 가능하도록 해야함
 
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 2f, LayerMask.GetMask("Ground"));
+		RaycastHit2D hit;
+
+		// Bigger 상태면 레이캐스트를 2.5f로 해주고 기본 상태면 2f로 해줌
+		if (anim.GetCurrentAnimatorStateInfo(1).nameHash == Animator.StringToHash("Item Layer.Bigger"))
+		{
+			Debug.Log("Bigger상태 ");
+			hit = Physics2D.Raycast(transform.position, Vector2.down, 2.5f, LayerMask.GetMask("Ground"));
+
+		}
+		else
+		{
+			hit = Physics2D.Raycast(transform.position, Vector2.down, 2f, LayerMask.GetMask("Ground"));
+		}
+
 
 		if (hit.collider != null)	// 레이어 부딪힌 게 있는 경우
 		{
@@ -68,8 +81,6 @@ public class PlayerController : MonoBehaviour
 		else 
 			isGrounded = false;
 
-		// 1단 점프 시작할 땐 isGround가 true로 뜨고, 2단 점프 시작할 땐 false로 뜸! 잘 맞게 뜨는 거임 2단점프만을 위한 groundcheck라서
-		// Debug.Log(isGrounded);
 		return isGrounded;
 	}
 

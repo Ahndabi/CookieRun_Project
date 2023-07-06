@@ -9,7 +9,7 @@ public class SettingPopUpUI : PopUpUI
 	{
 		base.Awake();
 
-		buttons["StopButton"].onClick.AddListener(() => { OpenPausePopUpUI(); });
+		buttons["StopButton"].onClick.AddListener(() => { Debug.Log("로비씬으로 넘어감"); });
 		buttons["ContinueButton"].onClick.AddListener(() => { GameManager.UI.ClosePopUpUI(); });
 	}
 

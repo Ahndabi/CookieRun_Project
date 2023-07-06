@@ -17,7 +17,7 @@ public class TakeDamage : MonoBehaviour
 	Animator anim;
 	SpriteRenderer sp;
 	Material mat;
-	public UnityEvent OnTakeDamage;
+	Color oriMat;
 
 	private void Awake()
 	{
@@ -29,6 +29,10 @@ public class TakeDamage : MonoBehaviour
 	{
 		cameraPos = Camera.main.transform.position;     // 카메라 위치는 시작할 때의 카메라 위치
 		mat = sp.material;
+		//oriMat = gameObject.GetComponent<SpriteRenderer>().material;    // 현재 기본 플레이어의 Matrial
+		oriMat.a = gameObject.GetComponent<SpriteRenderer>().material.color.a;    // 현재 기본 플레이어의 Matrial
+
+		//PlayerTransparency();
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)
@@ -37,13 +41,17 @@ public class TakeDamage : MonoBehaviour
 		if (col.gameObject.tag == "Obstacle")
 		{
 			DecreaseHP();   // HP 감소
-			OnTakeDamage?.Invoke();
+
+			anim.SetTrigger("TakeDamage");
+
 			CameraShake();
 
 			StartCoroutine(IgnoreLayerRoutine());			// 2초 동안 IgnoreLayer 함수를 반복해서 계속 호출
 			StartCoroutine(CancleLayerCollisionRoutine());  // 2초 뒤에 Invicibility를 취소시키는 함수 호출
-			StartCoroutine(StopCameraShakeRoutine());		// 카메라 흔드는 함수 호출
-			//StartCoroutine(PlayerTransparencyRoutine());	// 플레이어 투명화
+			StartCoroutine(StopCameraShakeRoutine());       // 카메라 흔드는 함수 호출
+															//StartCoroutine(PlayerTransparencyRoutine());	// 플레이어 투명화
+															//InvokeRepeating("PlayerTransparency", 0f, 0.2f);
+			//mat.color = oriMat;
 		}
 	}
 
@@ -74,21 +82,31 @@ public class TakeDamage : MonoBehaviour
 
 	// 플레이어 투명화 하는 거 코루틴으로 0.1초마다 반복하게 하면 되지않낭?
 	IEnumerator PlayerTransparencyRoutine()
-	{/*
+	{
 		WaitForSeconds waitsec = new WaitForSeconds(0.2f);
-		 
-		// 여기서 기본으로 돌아가는거
+
+		//oriMat = mat;	// oriMat이 기본
 
 		for (int i = 0; i < 2; i++)
 		{
 			PlayerTransparency();
 			yield return waitsec;
-		}*/
+		}
 
-		PlayerTransparency();
-		yield return new WaitForSeconds(2f);
+		for (int j = 0; j < 2; j++)
+		{
+			mat.color = oriMat;
+			yield return waitsec;
+		}
+
+		//PlayerTransparency();
+		//yield return new WaitForSeconds(2f);
 	}
 
+	void OriState()
+	{
+		mat.color = oriMat;
+	}
 
 	void PlayerTransparency()		// 플레이어 투명화
 	{
@@ -96,8 +114,8 @@ public class TakeDamage : MonoBehaviour
 		matColor.a = 0.5f;
 		mat.color = matColor;
 		// 여기서 invoke로 0.1초 뒤에 플레이어 원래 투명도로 돌아오는 함수 호출하기
+		//Invoke("OriState", 0.2f);
 	}
-
 
 	void DecreaseHP()
 	{

@@ -8,9 +8,11 @@ public class BigPlayerItem : Item
 	[SerializeField] GameObject Player;
 	public UnityEvent OnBigger;
 
+	// TODO : 크기 커지는 물약 먹고 점프 안 되는 이유는 레이캐스트 때문임! 몸집 커진만큼 GroundCheck 더 길게 체크해줘야함
+
 	private void Awake()
 	{
-		// Player = Resources.Load<GameObject>("Prefabs/Player");
+		Player = Resources.Load<GameObject>("Prefabs/Player");
 	}
 
 	public override void Contact()	// 플레이어랑 닿았을 때의 함수
