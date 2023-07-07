@@ -52,7 +52,10 @@ public class ObstacleCSV : MonoBehaviour
 		foreach (string line in lines)
 		{
 			values = line.Split(',');   // 줄을 구분자로 분리하여 값 얻기
-
+										// values[] = [0] : JumpOb
+										//			  [1] : 13
+										//		      [2] : -3.239
+										//			  [3] : 2
 			x = float.Parse(values[1]);
 			y = float.Parse(values[2]);
 			spawnTime = float.Parse(values[3]);

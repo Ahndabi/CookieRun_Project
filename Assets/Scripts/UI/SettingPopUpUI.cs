@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SettingPopUpUI : PopUpUI
 {
-
 	protected override void Awake()
 	{
 		base.Awake();
 
-		buttons["StopButton"].onClick.AddListener(() => { Debug.Log("로비씬으로 넘어감"); });
+		buttons["ExitButton"].onClick.AddListener(() => { ChangedLobbyScene(); });
 		buttons["ContinueButton"].onClick.AddListener(() => { GameManager.UI.ClosePopUpUI(); });
+	}
+
+	void ChangedLobbyScene()
+	{
+		SceneManager.LoadScene("LobbyScene");
 	}
 
 	public void OpenPausePopUpUI()

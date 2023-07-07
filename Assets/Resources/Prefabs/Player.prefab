@@ -237,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSpeed: 20
   isJump: 0
+  a: {fileID: 2250362142640287348, guid: 50035c7f2936f5f4b866f8c7065c63a3, type: 3}
   anim: {fileID: 0}
 --- !u!114 &2195707198058841870
 MonoBehaviour:

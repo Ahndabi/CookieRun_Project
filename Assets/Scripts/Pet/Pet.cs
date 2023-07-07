@@ -18,10 +18,6 @@ public abstract class Pet : MonoBehaviour
 		JumpToPlayer();
 	}
 
-	// 펫들은 이 스크립트를 상속할 것임
-	// 펫은 각자 기능이 있음
-	// 애니메이션 필요
-
 	void JumpToPlayer()     // 플레이어를 따라 점프 (여기서는 애니메이션도 있음)
 	{
 		gameObject.transform.position = target.transform.position + new Vector3(-3.5f, 1.1f, 0);

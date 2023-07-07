@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
 	private Canvas inGameCanvas;
 
 	// HP °ü¸®
-	float maxHP = 100;
+	public float maxHP = 100;
 	public float curHP;
 
 

@@ -11,7 +11,7 @@ public class PlayerDie : MonoBehaviour
 	// 플레이어 작동 금지
 	// 2.5 ~ 3초 뒤에 점수 나옴
 	public UnityEvent OnDie;
-	public GameObject DiePlayer;
+	public GameObject DiePlayer;	// 드래그로 씬에 있는 DiePlayer를 넣어줌
 	public GameObject Player;
 	PlayerInput inputSystem;
 	Vector3 cameraPos;
@@ -37,10 +37,7 @@ public class PlayerDie : MonoBehaviour
 
 	void Die()
 	{
-		// 3초 뒤에 점수 UI 보여야 함
-		// GameResultUI 활성화 시켜야됨
-		// GameManager.UI.ShowPopUpUI<PopUpUI>("UI/GameResultUI"); << 이건 됨
-		Invoke("ShowGameResultUI", 2f);
+		StartCoroutine(ShowGameResultUI());
 
 		OnDie?.Invoke();
 
@@ -58,9 +55,9 @@ public class PlayerDie : MonoBehaviour
 		inputSystem.enabled = false;
 	}
 
-	void ShowGameResultUI()
+	IEnumerator ShowGameResultUI()
 	{
-		Debug.Log("ShowGameResultUI 함수 실행");
+		yield return new WaitForSeconds(2f);
 		GameManager.UI.ShowPopUpUI<PopUpUI>("UI/GameResultUI");
 	}
 }

@@ -69,6 +69,8 @@ public class Test_ItemCSV : MonoBehaviour
 
 				Instantiate(ItemPrefabs[a], new Vector3(20, y, 0), Quaternion.identity);
 
+				Debug.Log(values);
+
 				yield return new WaitForSeconds(spawnTime);
 			}
 		}

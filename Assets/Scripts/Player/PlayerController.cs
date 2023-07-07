@@ -12,18 +12,16 @@ public class PlayerController : MonoBehaviour
 	bool isSlide = false;
 	public bool isJump = false;
 
+	GameObject Player;
+
 	Rigidbody2D rb;
 	public Animator anim;
 
 	private void Awake()
 	{
+		Player = GameManager.Resource.Load<GameObject>("Prefabs/Player");
 		anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
-	}
-
-	private void Update()
-	{
-		//Debug.DrawRay(transform.position, Vector3.down * 2.5f, Color.green);		<< 이거 bigger 상태로 돼 있음 2.5
 	}
 
 	public void Jump()
