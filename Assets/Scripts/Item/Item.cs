@@ -8,6 +8,7 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour
 {
 	[SerializeField] float ScrollSpeed;
+	protected AudioClip getSound;
 
 	public abstract void Contact();     // 플레이어랑 닿았을 때 함수
 										// 1. Destroy

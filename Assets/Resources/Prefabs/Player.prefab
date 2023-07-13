@@ -220,8 +220,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.037344396, y: 0.22393286}
-  m_Size: {x: 7.215214, y: 8.690333}
+  m_Offset: {x: 0.43660104, y: 0.22393286}
+  m_Size: {x: 5.6181903, y: 8.690333}
   m_Direction: 0
 --- !u!114 &2195707198058841869
 MonoBehaviour:
@@ -237,7 +237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSpeed: 20
   isJump: 0
-  a: {fileID: 2250362142640287348, guid: 50035c7f2936f5f4b866f8c7065c63a3, type: 3}
+  jumpSound: {fileID: 0}
+  slideSound: {fileID: 0}
   anim: {fileID: 0}
 --- !u!114 &2195707198058841870
 MonoBehaviour:

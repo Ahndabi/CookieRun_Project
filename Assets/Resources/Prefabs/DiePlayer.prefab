@@ -20,13 +20,14 @@ GameObject:
   - component: {fileID: 157251820}
   - component: {fileID: 7866311845032608887}
   - component: {fileID: 1537585294}
+  - component: {fileID: 3565330127231234537}
   m_Layer: 3
   m_Name: DiePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2195707198058841858
 Transform:
   m_ObjectHideFlags: 0
@@ -289,3 +290,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+--- !u!114 &3565330127231234537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2195707198058841860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f7286467dc8734c8ec121c4d7db42d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

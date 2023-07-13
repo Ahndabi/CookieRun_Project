@@ -29,10 +29,8 @@ public class TakeDamage : MonoBehaviour
 	{
 		cameraPos = Camera.main.transform.position;     // 카메라 위치는 시작할 때의 카메라 위치
 		mat = sp.material;
-		//oriMat = gameObject.GetComponent<SpriteRenderer>().material;    // 현재 기본 플레이어의 Matrial
 		oriMat.a = gameObject.GetComponent<SpriteRenderer>().material.color.a;    // 현재 기본 플레이어의 Matrial
 
-		//PlayerTransparency();
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)
@@ -44,11 +42,8 @@ public class TakeDamage : MonoBehaviour
 
 			anim.SetTrigger("TakeDamage");
 
-			CameraShake();
-
+			StartCoroutine(CameraShakeRoutine());			// 카메라 흔드는 함수 호출
 			StartCoroutine(IgnoreLayerRoutine());			// 2초 동안 IgnoreLayer 함수를 반복해서 계속 호출
-			StartCoroutine(CancleLayerCollisionRoutine());  // 2초 뒤에 Invicibility를 취소시키는 함수 호출
-			StartCoroutine(StopCameraShakeRoutine());       // 카메라 흔드는 함수 호출
 															//StartCoroutine(PlayerTransparencyRoutine());	// 플레이어 투명화
 															//InvokeRepeating("PlayerTransparency", 0f, 0.2f);
 			//mat.color = oriMat;
@@ -60,20 +55,18 @@ public class TakeDamage : MonoBehaviour
 		StopAllCoroutines();
 	}
 
-	IEnumerator IgnoreLayerRoutine()
+	IEnumerator IgnoreLayerRoutine()		// *** 여기서 레이어 무시한 뒤 1.5초 안 지나고 BigItem먹으면 레이어 무시된 채로 이 스크립트 삭제돼서 Destroy안됨 ㅜㅜ
 	{
-		Physics2D.IgnoreLayerCollision(3, 8);           // 장애물 콜라이더(레이어) 무시하기
-		yield return new WaitForSeconds(2f);
-	}
-
-	IEnumerator CancleLayerCollisionRoutine()
-	{
-		yield return new WaitForSeconds(2f);
+		Physics2D.IgnoreLayerCollision(3, 8, true);           // 장애물 콜라이더(레이어) 무시하기
+		yield return new WaitForSeconds(1.5f);
 		Physics2D.IgnoreLayerCollision(3, 8, false);    // 다시 레이어 체크
 	}
 
-	IEnumerator StopCameraShakeRoutine()
+	IEnumerator CameraShakeRoutine()
 	{
+		float x = Random.Range(0f, 0.8f);
+		float y = Random.Range(0f, 0.8f);
+		Camera.main.transform.position += new Vector3(x, y, 0);
 		yield return new WaitForSeconds(0.1f);
 		Camera.main.transform.position = cameraPos;		// 카메라 위치 원상복구
 	}
@@ -120,18 +113,5 @@ public class TakeDamage : MonoBehaviour
 	void DecreaseHP()
 	{
 		GameManager.UI.TakeDamageHP(10);	// 10씩 데미지 받으면서 hp가 감소
-	}
-
-	void CameraShake()		// 카메라 흔들리기
-	{
-		float x = Random.Range(0f, 0.8f);
-		float y = Random.Range(0f, 0.8f);
-
-		Camera.main.transform.position += new Vector3(x, y, 0);
-	}
-
-	void StopCameraShake()	// 카메라 위치 원상태로 복구
-	{
-		Camera.main.transform.position = cameraPos;
 	}
 }

@@ -13,6 +13,7 @@ public class PlayerDie : MonoBehaviour
 	public UnityEvent OnDie;
 	public GameObject DiePlayer;	// 드래그로 씬에 있는 DiePlayer를 넣어줌
 	public GameObject Player;
+	AudioClip dieSound;
 	PlayerInput inputSystem;
 	Vector3 cameraPos;
 
@@ -20,6 +21,7 @@ public class PlayerDie : MonoBehaviour
 	{
 		inputSystem = GetComponent<PlayerInput>();
 		Player = GameObject.FindWithTag("Player");
+		dieSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GameEnd");
 	}
 
 	private void Start()
@@ -53,6 +55,9 @@ public class PlayerDie : MonoBehaviour
 
 		// inputsystem 비활성화. 점프 안되게
 		inputSystem.enabled = false;
+
+		// 죽는 소리
+		// SoundManager.instance.SFXPlay("SoundEff_GameEnd", dieSound); -> 얘 왜 끝없이 나와ㅜ
 	}
 
 	IEnumerator ShowGameResultUI()

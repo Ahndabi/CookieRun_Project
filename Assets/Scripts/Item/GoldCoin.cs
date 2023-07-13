@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class GoldCoin : Item
 {
+	private void Awake()
+	{
+		getSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GetGoldJelly");
+	}
 	public override void Contact()
 	{
-		Destroy(gameObject);
+		gameObject.SetActive(false);
 		GameManager.Data.AddCoinCount(10);  // 골드코인 먹으면 점수 5씩 증가
 	}
 
@@ -15,6 +19,7 @@ public class GoldCoin : Item
 		if (col.gameObject.tag == "Player")
 		{
 			Contact();
+			SoundManager.instance.SFXPlay("SoundEff_GetGoldJelly", getSound);
 		}
 	}
 }

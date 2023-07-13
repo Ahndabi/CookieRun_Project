@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class BearJelly : Item
 {
+	private void Awake()
+	{
+		getSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GetItemBearJelly");
+	}
+
 	public override void Contact()
 	{
-		Destroy(gameObject);
+		gameObject.SetActive(false);
 		GameManager.Data.AddJellyCount(22);  // °õµ¹ÀÌ Á©¸® ¸ÔÀ¸¸é Á¡¼ö 22¾¿ Áõ°¡
 	}
 
@@ -15,6 +20,7 @@ public class BearJelly : Item
 		if (col.gameObject.tag == "Player")
 		{
 			Contact();
+			SoundManager.instance.SFXPlay("SoundEff_GetItemBearJelly", getSound);
 		}
 	}
 }

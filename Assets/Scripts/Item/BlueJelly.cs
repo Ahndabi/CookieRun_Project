@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class BlueJelly : Item
 {
+	private void Awake()
+	{
+		getSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GetJelly");
+	}
+
+
 	public override void Contact()
 	{
-		Destroy(gameObject);
+		gameObject.SetActive(false);
+
 		GameManager.Data.AddJellyCount(10);  // Á©¸® ¸ÔÀ¸¸é Á¡¼ö 10¾¿ Áõ°¡
 	}
 
@@ -15,6 +22,7 @@ public class BlueJelly : Item
 		if(col.gameObject.tag == "Player")
 		{
 			Contact();
+			SoundManager.instance.SFXPlay("SoundEff_GetJelly", getSound);
 		}
 	}
 }

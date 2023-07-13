@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6910839933748577696}
-  - component: {fileID: 6910839933748577703}
-  - component: {fileID: 6910839933748577702}
+  - component: {fileID: 438900242}
   m_Layer: 0
   m_Name: CSV
   m_TagString: Untagged
@@ -33,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6910839933748577703
+--- !u!114 &438900242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,25 +41,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6910839933748577698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87a92c7006c1b6b448ca73fba47367de, type: 3}
+  m_Script: {fileID: 11500000, guid: 566834474c334af42b3101fed18bc6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ScrollSpeed: 10.5
---- !u!114 &6910839933748577702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6910839933748577698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b629346c4b2bbfd4a9d9e20861671975, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScrollSpeed: 10.5
-  ItemPrefabs:
-  - {fileID: 2250362142640287348, guid: 50035c7f2936f5f4b866f8c7065c63a3, type: 3}
-  - {fileID: 8839362086381790683, guid: 6a4d306738ed2e94ab61f4d79d75fc1b, type: 3}
-  - {fileID: 6075963066404930401, guid: 5c76349e4fc68fa4a841199464eb2a2a, type: 3}
-  - {fileID: 1421231221122428025, guid: 185f9dd88e16fe64e815eaae55b3c72f, type: 3}
+  Blue: {fileID: 0}
+  Bear: {fileID: 0}
+  Sliver: {fileID: 0}
+  Gold: {fileID: 0}
+  Bigger: {fileID: 0}
+  HeartLife: {fileID: 0}
+  JumpOb: {fileID: 0}
+  SlideOb: {fileID: 0}

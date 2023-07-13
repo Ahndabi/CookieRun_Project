@@ -15,16 +15,16 @@ public class BigPlayerController : MonoBehaviour
 	private void Awake()
 	{
 		anim = GetComponent<Animator>();
-		takeDamage = GetComponent<TakeDamage>();
 	}
 
 	public void NoneDamage()	// 플레이어가 커지는 애니메이션에 이벤트로 붙인 함수
 	{
 		isBig = true;
+		takeDamage = GetComponent<TakeDamage>();
 		Destroy(takeDamage);
-
 		StartCoroutine(OriginalSizeRoutine());
 		StartCoroutine(AddTakeDamageRoutine());
+		
 	}
 
 	IEnumerator OriginalSizeRoutine()
@@ -36,16 +36,10 @@ public class BigPlayerController : MonoBehaviour
 		// TODO : 깜빡깜빡 효과도 추가해야함
 	}
 
-
 	IEnumerator AddTakeDamageRoutine()
 	{
 		yield return new WaitForSeconds(4f);
 
-		gameObject.AddComponent<TakeDamage>();      // 다시 TakeDamage 스크립트 추가
-	}
-
-	public void AddTakeDamage()
-	{
 		gameObject.AddComponent<TakeDamage>();      // 다시 TakeDamage 스크립트 추가
 	}
 
