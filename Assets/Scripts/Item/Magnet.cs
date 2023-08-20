@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Magnet : Item
 {
+	Pet pet;
 
 	private void Awake()
 	{
@@ -12,9 +13,11 @@ public class Magnet : Item
 
 	public override void Contact()
 	{
-		gameObject.SetActive(false);
 		// 펫이 앞으로 나가서(+애니메이션) 앞에 있는 아이템들 자석처럼 끌어당김
-		// LayerMask나 콜라이더 등으로 앞에 일정 범위를 체크하고 
+		// 펫에 있는 자석함수를 여기서 호출할거임 
+		gameObject.SetActive(false);
+		pet = GameObject.FindGameObjectWithTag("Pet").GetComponent<Pet>();
+		pet.Magnet();   // < 이 함수 안에 모든 기능 구현
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)

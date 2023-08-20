@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 3276299d35bbdbc438a5f4c1d6dc788d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pet: {fileID: 6013951919710212694, guid: d676c7dbd023af241b7ed0d75b50cce9, type: 3}
+  - petScript: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
