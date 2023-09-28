@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 566834474c334af42b3101fed18bc6db
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Blue: {fileID: 8839362086381790683, guid: 6a4d306738ed2e94ab61f4d79d75fc1b, type: 3}
+  - Bear: {fileID: 2250362142640287348, guid: 50035c7f2936f5f4b866f8c7065c63a3, type: 3}
+  - Sliver: {instanceID: 0}
+  - Gold: {instanceID: 0}
+  - Bigger: {instanceID: 0}
+  - HeartLife: {instanceID: 0}
+  - JumpOb: {instanceID: 0}
+  - SlideOb: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

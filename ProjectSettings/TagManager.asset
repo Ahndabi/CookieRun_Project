@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Obstacle
   - Item
+  - Pet
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,9 @@ TagManager:
   m_SortingLayers:
   - name: BackGround
     uniqueID: 2059202845
+    locked: 0
+  - name: Obstacle
+    uniqueID: 3865842369
     locked: 0
   - name: Player
     uniqueID: 2119205467
