@@ -7,12 +7,13 @@ public class SilverCoin : Item
 	private void Awake()
 	{
 		getSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GetCoinJelly");
-	}
+		items.Add(gameObject, 5);  // items 딕셔너리에 추가
+    }
 
-	public override void Contact()
+    public override void Contact()
 	{
 		gameObject.SetActive(false);
-		GameManager.Data.AddCoinCount(1);  // 실버코인 먹으면 점수 1씩 증가
+		GameManager.Data.AddCoinCount(items[gameObject]);  // 실버코인 먹으면 점수 1씩 증가
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)

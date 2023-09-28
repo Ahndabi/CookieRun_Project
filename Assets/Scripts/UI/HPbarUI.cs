@@ -12,14 +12,18 @@ public class HPbarUI : MonoBehaviour
 		Hpbar = GetComponent<Slider>();
 	}
 
-	private void Update()
-	{
-		DecreaseHPBar();
-	}
+    private void OnEnable()
+    {
+		StartCoroutine(DecreaseHPBarRoutine());
+    }
 
-	void DecreaseHPBar()
+    IEnumerator DecreaseHPBarRoutine()
 	{
-		GameManager.UI.ChangedHP();
-		Hpbar.value = GameManager.UI.curHP;
-	}
+		while (true)
+		{
+            GameManager.UI.ChangedHP();
+            Hpbar.value = GameManager.UI.curHP;
+			yield return null;
+        }
+    }
 }

@@ -7,12 +7,13 @@ public class BearJelly : Item
 	private void Awake()
 	{
 		getSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GetItemBearJelly");
+		items.Add(gameObject, 22);	// items 딕셔너리에 BearJelly, 점수 추가
 	}
 
 	public override void Contact()
 	{
 		gameObject.SetActive(false);
-		GameManager.Data.AddJellyCount(22);  // 곰돌이 젤리 먹으면 점수 22씩 증가
+		GameManager.Data.AddJellyCount(items[gameObject]);  // 곰돌이 젤리 먹으면 점수 22씩 증가
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)

@@ -15,12 +15,12 @@ public class BigPlayerController : MonoBehaviour
 	private void Awake()
 	{
 		anim = GetComponent<Animator>();
+		takeDamage = GetComponent<TakeDamage>();
 	}
 
 	public void NoneDamage()	// 플레이어가 커지는 애니메이션에 이벤트로 붙인 함수
 	{
 		isBig = true;
-		takeDamage = GetComponent<TakeDamage>();
 		Destroy(takeDamage);
 		StartCoroutine(OriginalSizeRoutine());
 		StartCoroutine(AddTakeDamageRoutine());

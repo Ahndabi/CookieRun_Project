@@ -7,11 +7,12 @@ public class GoldCoin : Item
 	private void Awake()
 	{
 		getSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GetGoldJelly");
-	}
-	public override void Contact()
+        items.Add(gameObject, 10);  // items 딕셔너리에 추가
+    }
+    public override void Contact()
 	{
 		gameObject.SetActive(false);
-		GameManager.Data.AddCoinCount(10);  // 골드코인 먹으면 점수 5씩 증가
+		GameManager.Data.AddCoinCount(items[gameObject]);  // 골드코인 먹으면 점수 5씩 증가
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)

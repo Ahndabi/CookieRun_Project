@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
 	bool isSlide = false;
 	public bool isJump = false;
 
-	GameObject Player;
-
 	public AudioClip jumpSound;
 	public AudioClip slideSound;
 	Rigidbody2D rb;
@@ -21,7 +19,6 @@ public class PlayerController : MonoBehaviour
 
 	private void Awake()
 	{
-		Player = GameManager.Resource.Load<GameObject>("Prefabs/Player");
 		jumpSound = GameManager.Resource.Load<AudioClip>("Sound/cookie0001_jump");
 		slideSound = GameManager.Resource.Load<AudioClip>("Sound/cookie0001_slide");
 		anim = GetComponent<Animator>();

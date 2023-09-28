@@ -9,9 +9,10 @@ public class Magnet : Item
 	private void Awake()
 	{
 		getSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GetCoinJelly");
-	}
+        items.Add(gameObject, 0);  // items 딕셔너리에 추가
+    }
 
-	public override void Contact()
+    public override void Contact()
 	{
 		// 펫이 앞으로 나가서(+애니메이션) 앞에 있는 아이템들 자석처럼 끌어당김
 		// 펫에 있는 자석함수를 여기서 호출할거임 

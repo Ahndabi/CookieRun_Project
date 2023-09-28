@@ -7,9 +7,10 @@ public class HeartLife : Item
 	private void Awake()
 	{
 		getSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GetJelly");
-	}
+        items.Add(gameObject, 0);  // items µñ¼Å³Ê¸®¿¡ Ãß°¡
+    }
 
-	public override void Contact()
+    public override void Contact()
 	{
 		gameObject.SetActive(false);
 	}

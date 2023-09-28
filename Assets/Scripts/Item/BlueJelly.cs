@@ -7,14 +7,15 @@ public class BlueJelly : Item
 	private void Awake()
 	{
 		getSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GetJelly");
-	}
+        items.Add(gameObject, 10);  // items µñ¼Å³Ê¸®¿¡ Ãß°¡
+    }
 
 
-	public override void Contact()
+    public override void Contact()
 	{
 		gameObject.SetActive(false);
 
-		GameManager.Data.AddJellyCount(10);  // Á©¸® ¸ÔÀ¸¸é Á¡¼ö 10¾¿ Áõ°¡
+		GameManager.Data.AddJellyCount(items[gameObject]);  // Á©¸® ¸ÔÀ¸¸é Á¡¼ö 10¾¿ Áõ°¡
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)
