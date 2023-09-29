@@ -20,7 +20,8 @@ public class HeartLife : Item
 		if (col.gameObject.tag == "Player")
 		{
 			Contact();
-			ChargeHeartUI();
+			// ChargeHeartUI();
+			GameManager.Data.IncreaseHp(20);
 			SoundManager.instance.SFXPlay("SoundEff_GetJelly", getSound);
 		}
 	}
@@ -28,5 +29,6 @@ public class HeartLife : Item
 	void ChargeHeartUI()	// UI의 HeartLife 바 충전하는 함수
 	{
 		GameManager.UI.curHP += 20f;
+
 	}
 }

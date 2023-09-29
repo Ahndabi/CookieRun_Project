@@ -12,8 +12,8 @@ public class DataManager : MonoBehaviour
 	public int CoinCount;
 
 	private float hp;
-	public float HP { get { return hp; } set { hp = value; } }
-	float maxHp = 100;
+	public float HP { get { return hp; } }
+	public float maxHp = 100;
 
 	public UnityAction<int> OnJellyChanged;
 	public UnityAction<int> OnCointChanged;
@@ -21,7 +21,7 @@ public class DataManager : MonoBehaviour
 
     private void Start()
     {
-		HP = maxHp;
+		hp = maxHp;
     }
 
     public void AddJellyCount(int count)
@@ -50,4 +50,5 @@ public class DataManager : MonoBehaviour
 	{
 		hp -= Time.deltaTime * 5;
 	}
+
 }

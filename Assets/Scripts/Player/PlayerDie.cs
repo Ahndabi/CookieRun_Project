@@ -26,15 +26,26 @@ public class PlayerDie : MonoBehaviour
 
 	private void Start()
 	{
-		cameraPos = Camera.main.transform.position;     // 시작할 때의 카메라 위치
+		// gameObject.SetActive(true);
+        cameraPos = Camera.main.transform.position;     // 시작할 때의 카메라 위치
+        StartCoroutine(CheckDieRoutine());
 	}
 
-	private void Update()
+    private void OnDisable()
+    {
+		// StopCoroutine(CheckDieRoutine());
+    }
+
+    IEnumerator CheckDieRoutine()
 	{
-		if (GameManager.UI.curHP <= 0)
-		{
-			Die();
-		}
+		while (true)
+        {
+            if (GameManager.Data.HP <= 0)
+            {
+                Die();
+            }
+			yield return null;
+        }
 	}
 
 	void Die()

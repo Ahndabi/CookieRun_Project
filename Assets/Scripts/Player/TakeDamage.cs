@@ -38,7 +38,8 @@ public class TakeDamage : MonoBehaviour
 		// 장애물을 통과하면 다치는 애니메이션 실행
 		if (col.gameObject.tag == "Obstacle")
 		{
-			DecreaseHP();   // HP 감소
+			// DecreaseHP();   // HP 감소
+			GameManager.Data.DecreaseHp(10);
 
 			anim.SetTrigger("TakeDamage");
 
@@ -96,11 +97,6 @@ public class TakeDamage : MonoBehaviour
 		//yield return new WaitForSeconds(2f);
 	}
 
-	void OriState()
-	{
-		mat.color = oriMat;
-	}
-
 	void PlayerTransparency()		// 플레이어 투명화
 	{
 		Color matColor = mat.color;
@@ -108,10 +104,5 @@ public class TakeDamage : MonoBehaviour
 		mat.color = matColor;
 		// 여기서 invoke로 0.1초 뒤에 플레이어 원래 투명도로 돌아오는 함수 호출하기
 		//Invoke("OriState", 0.2f);
-	}
-
-	void DecreaseHP()
-	{
-		GameManager.UI.TakeDamageHP(10);	// 10씩 데미지 받으면서 hp가 감소
 	}
 }

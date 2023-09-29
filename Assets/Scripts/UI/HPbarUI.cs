@@ -12,6 +12,11 @@ public class HPbarUI : MonoBehaviour
 		Hpbar = GetComponent<Slider>();
 	}
 
+    private void Start()
+    {
+		Hpbar.value = GameManager.Data.maxHp;
+    }
+
     private void OnEnable()
     {
 		StartCoroutine(DecreaseHPBarRoutine());
@@ -19,10 +24,10 @@ public class HPbarUI : MonoBehaviour
 
     IEnumerator DecreaseHPBarRoutine()
 	{
-		while (true)
+		while (true)	// TODO : 코루틴 종료 조건 없음
 		{
-            GameManager.UI.ChangedHP();
-            Hpbar.value = GameManager.UI.curHP;
+			GameManager.Data.ChangeHp();
+			Hpbar.value = GameManager.Data.HP;
 			yield return null;
         }
     }
