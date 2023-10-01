@@ -20,7 +20,6 @@ public class LobbySceneUI : SceneUI
 	{
 		// TODO : 게임 씬으로 넘어갈 때 초기 상태로 초기화해줘야 함! 두 번 플레이하면 플레이어 죽는 그 상태로 다시 되돌아와,,
 
-		//SceneManager.LoadScene("GameScene");
 		GameManager.Scene.StartGameScene();
 	}
 }

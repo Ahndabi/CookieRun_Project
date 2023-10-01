@@ -14,12 +14,13 @@ public class HPbarUI : MonoBehaviour
 
     private void Start()
     {
-		Hpbar.value = GameManager.Data.maxHp;
     }
 
     private void OnEnable()
     {
-		StartCoroutine(DecreaseHPBarRoutine());
+        Debug.Log("Ω√¿€");
+        Hpbar.value = GameManager.Data.maxHp;
+        StartCoroutine(DecreaseHPBarRoutine());
     }
 
     IEnumerator DecreaseHPBarRoutine()

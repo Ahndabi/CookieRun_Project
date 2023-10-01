@@ -32,7 +32,7 @@ public class ALLCSV : MonoBehaviour
 		SlideOb = Resources.Load<GameObject>("Prefabs/Obstacle&ItemSet/SlideObstacle1");
 	}
 
-	void Start()
+	void OnEnable()
 	{
 		CSVReader();
 	}
@@ -41,7 +41,6 @@ public class ALLCSV : MonoBehaviour
 	{
 		TextAsset csvFile = Resources.Load("ALLCSV") as TextAsset;
 		string csvText = csvFile.text;
-		//Debug.Log(csvText);
 
 		if (csvFile != null)
 		{

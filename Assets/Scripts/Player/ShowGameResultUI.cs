@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShowGameResultUI : MonoBehaviour
 {
-    void Start()
+    void OnEnable()
     {
 		StartCoroutine(ShowUIRoutine());
     }

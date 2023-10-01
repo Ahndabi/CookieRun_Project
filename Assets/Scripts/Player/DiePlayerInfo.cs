@@ -10,10 +10,21 @@ public class DiePlayerInfo : MonoBehaviour
 
 	private void Awake()
 	{
-		Player = GameObject.FindWithTag("Player").transform;
-	}
+        // Player = GameObject.FindWithTag("Player").transform;
+        // gameObject.SetActive(false);
+    }
 
-	private void LateUpdate()
+    private void Start()
+    {
+        // gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+		Player = GameObject.FindWithTag("Player").transform;
+    }
+
+    private void LateUpdate()
 	{
 		gameObject.transform.position = Player.transform.position;
 	}

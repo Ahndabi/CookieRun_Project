@@ -38,7 +38,6 @@ public class TakeDamage : MonoBehaviour
 		// 장애물을 통과하면 다치는 애니메이션 실행
 		if (col.gameObject.tag == "Obstacle")
 		{
-			// DecreaseHP();   // HP 감소
 			GameManager.Data.DecreaseHp(10);
 
 			anim.SetTrigger("TakeDamage");
@@ -46,8 +45,6 @@ public class TakeDamage : MonoBehaviour
 			StartCoroutine(CameraShakeRoutine());			// 카메라 흔드는 함수 호출
 			StartCoroutine(IgnoreLayerRoutine());			// 2초 동안 IgnoreLayer 함수를 반복해서 계속 호출
 															//StartCoroutine(PlayerTransparencyRoutine());	// 플레이어 투명화
-															//InvokeRepeating("PlayerTransparency", 0f, 0.2f);
-			//mat.color = oriMat;
 		}
 	}
 
@@ -72,37 +69,4 @@ public class TakeDamage : MonoBehaviour
 		Camera.main.transform.position = cameraPos;		// 카메라 위치 원상복구
 	}
 
-
-
-	// 플레이어 투명화 하는 거 코루틴으로 0.1초마다 반복하게 하면 되지않낭?
-	IEnumerator PlayerTransparencyRoutine()
-	{
-		WaitForSeconds waitsec = new WaitForSeconds(0.2f);
-
-		//oriMat = mat;	// oriMat이 기본
-
-		for (int i = 0; i < 2; i++)
-		{
-			PlayerTransparency();
-			yield return waitsec;
-		}
-
-		for (int j = 0; j < 2; j++)
-		{
-			mat.color = oriMat;
-			yield return waitsec;
-		}
-
-		//PlayerTransparency();
-		//yield return new WaitForSeconds(2f);
-	}
-
-	void PlayerTransparency()		// 플레이어 투명화
-	{
-		Color matColor = mat.color;
-		matColor.a = 0.5f;
-		mat.color = matColor;
-		// 여기서 invoke로 0.1초 뒤에 플레이어 원래 투명도로 돌아오는 함수 호출하기
-		//Invoke("OriState", 0.2f);
-	}
 }

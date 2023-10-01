@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 	}
 
+    private void Start()
+    {
+		gameObject.SetActive(true);
+    }
+
     public void Jump()
 	{
 		// 2단 점프만 가능하도록 

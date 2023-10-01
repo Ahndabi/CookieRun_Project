@@ -14,15 +14,18 @@ public class BackGround : MonoBehaviour
 		renderer = GetComponent<MeshRenderer>();
 	}
 
-	private void Update()
+    private void OnEnable()
+    {
+		StartCoroutine(BackGroundScrollRoutine());
+    }
+
+    IEnumerator BackGroundScrollRoutine()
 	{
-		renderer.material.mainTextureOffset = new Vector2(x, y);
-		x = x + Time.deltaTime * speed;
-
-		/*
-		x += (speed * Time.deltaTime);
-
-		Vector2 offset = new Vector2(x, 0);
-		GetComponent<Renderer>().material.SetTextureOffset("_MainTex", offset);*/  // << 이건 됩니당
-	}
+		while (true)
+		{
+            renderer.material.mainTextureOffset = new Vector2(x, y);
+            x = x + Time.deltaTime * speed;
+            yield return null;
+        }
+    }
 }
