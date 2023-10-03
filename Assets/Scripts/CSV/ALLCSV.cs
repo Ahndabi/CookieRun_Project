@@ -11,8 +11,9 @@ public class ALLCSV : MonoBehaviour
 	[SerializeField] GameObject Sliver;				// 아이템 프리팹
 	[SerializeField] GameObject Gold;				// 아이템 프리팹
 	[SerializeField] GameObject Bigger;				// 아이템 프리팹
-	[SerializeField] GameObject HeartLife;			// 아이템 프리팹
-	[SerializeField] GameObject JumpOb;				// 장애물 프리팹
+	[SerializeField] GameObject HeartLife;          // 아이템 프리팹
+	[SerializeField] GameObject Magnet;				// 아이템 프리팹
+    [SerializeField] GameObject JumpOb;				// 장애물 프리팹
 	[SerializeField] GameObject SlideOb;			// 장애물 프리팹
 
 	protected string[] values;
@@ -27,7 +28,8 @@ public class ALLCSV : MonoBehaviour
 		Sliver = Resources.Load<GameObject>("Prefabs/Item/SilverCoin");
 		Gold = Resources.Load<GameObject>("Prefabs/Item/GoldCoin");
 		Bigger = Resources.Load<GameObject>("Prefabs/Item/Item_BiggerItem");
-		HeartLife = Resources.Load<GameObject>("Prefabs/Item/HeartLife");
+        Magnet = Resources.Load<GameObject>("Prefabs/Item/Item_Magnet");
+        HeartLife = Resources.Load<GameObject>("Prefabs/Item/HeartLife");
 		JumpOb = Resources.Load<GameObject>("Prefabs/Obstacle&ItemSet/JumpObstacle1");
 		SlideOb = Resources.Load<GameObject>("Prefabs/Obstacle&ItemSet/SlideObstacle1");
 	}
@@ -109,6 +111,10 @@ public class ALLCSV : MonoBehaviour
 				if (j == 7 && float.Parse(values[7]) != 0)
 				{
 					Instantiate(HeartLife, new Vector3(13, float.Parse(values[7]), 0), Quaternion.identity);
+				}
+				if (j == 8 && float.Parse(values[8]) != 0)
+				{
+					Instantiate(Magnet, new Vector3(13, float.Parse(values[8]), 0), Quaternion.identity);
 				}
 			}
 
