@@ -10,7 +10,7 @@ public class HeartLife : Item
         items.Add(gameObject, 0);  // items µñ¼Å³Ê¸®¿¡ Ãß°¡
     }
 
-    public override void Contact()
+    public override void ContactWithPlayer()
 	{
 		gameObject.SetActive(false);
 	}
@@ -19,7 +19,7 @@ public class HeartLife : Item
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			Contact();
+			ContactWithPlayer();
 			// ChargeHeartUI();
 			GameManager.Data.IncreaseHp(20);
 			SoundManager.instance.SFXPlay("SoundEff_GetJelly", getSound);

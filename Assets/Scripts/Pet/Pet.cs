@@ -7,15 +7,15 @@ using UnityEngine.UIElements;
 
 public abstract class Pet : MonoBehaviour
 {
-	GameObject Player;
-	[SerializeField] float speed = 1f;
+	GameObject player;
+	[SerializeField] float speed = 0.5f;
 	public Transform Originalpos;
 	public bool isMagnet = false;
 	[SerializeField] Collider2D magnetRange;
 	
 	private void Start()
 	{
-		Player = GameObject.FindWithTag("Player");      // 플레이어를 태그를 통해 target으로 넣어줌
+		player = GameObject.FindWithTag("Player");      // 플레이어를 태그를 통해 target으로 넣어줌
 		Originalpos = gameObject.transform;
 		magnetRange = gameObject.GetComponentInChildren<Collider2D>();      // 자식에 있는 콜라이더가 magnetRange. 평소엔 비활성화
 		magnetRange.enabled = false;
@@ -30,8 +30,8 @@ public abstract class Pet : MonoBehaviour
 	{
 		if (!isMagnet)		// isMagnet이 false일 때, 즉 자석기능 없는 상황일 때는 항상 플레이어 왼쪽에서 졸졸쫒아다니기
 		{
-			gameObject.transform.position = Player.transform.position + new Vector3(-3.5f, 1.1f, 0);
-			transform.position = Vector3.Lerp(transform.position, Player.transform.position, speed);    // 부드럽게 움직이기 위해 Lerp 사용
+			gameObject.transform.position = player.transform.position + new Vector3(-3.5f, 1.1f, 0);
+			transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, player.transform.position.y, transform.position.z), speed);    // 부드럽게 움직이기 위해 Lerp 사용
 		}
 	}
 

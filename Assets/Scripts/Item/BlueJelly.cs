@@ -11,7 +11,7 @@ public class BlueJelly : Item
     }
 
 
-    public override void Contact()
+    public override void ContactWithPlayer()
 	{
 		gameObject.SetActive(false);
 
@@ -22,7 +22,7 @@ public class BlueJelly : Item
 	{
 		if(col.gameObject.tag == "Player")
 		{
-			Contact();
+			ContactWithPlayer();
 			SoundManager.instance.SFXPlay("SoundEff_GetJelly", getSound);
 		}
 	}

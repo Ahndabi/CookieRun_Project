@@ -66,18 +66,10 @@ public class PlayerController : MonoBehaviour
 
 		RaycastHit2D hit;
 
-		// Bigger 상태면 레이캐스트를 2.5f로 해주고 기본 상태면 2f로 해줌
-		/*
-		if (anim.GetCurrentAnimatorStateInfo(1).nameHash == Animator.StringToHash("Item Layer.Bigger"))
-		{
-			hit = Physics2D.Raycast(transform.position, Vector2.down, 2.5f, LayerMask.GetMask("Ground"));
-		}*/
-
 		if (anim.GetCurrentAnimatorStateInfo(1).IsName("Bigger"))
 		{
             hit = Physics2D.Raycast(transform.position, Vector2.down, 2.8f, LayerMask.GetMask("Ground"));
         }
-
         else
 		{
 			hit = Physics2D.Raycast(transform.position, Vector2.down, 2f, LayerMask.GetMask("Ground"));

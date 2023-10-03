@@ -9,7 +9,7 @@ public class GoldCoin : Item
 		getSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GetGoldJelly");
         items.Add(gameObject, 10);  // items 딕셔너리에 추가
     }
-    public override void Contact()
+    public override void ContactWithPlayer()
 	{
 		gameObject.SetActive(false);
 		GameManager.Data.AddCoinCount(items[gameObject]);  // 골드코인 먹으면 점수 5씩 증가
@@ -19,7 +19,7 @@ public class GoldCoin : Item
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			Contact();
+			ContactWithPlayer();
 			SoundManager.instance.SFXPlay("SoundEff_GetGoldJelly", getSound);
 		}
 	}

@@ -12,9 +12,9 @@ public abstract class Item : MonoBehaviour
 	public bool isMagnetRangeTrigger = false;
 	[SerializeField] GameObject pet;
 
-    public Dictionary<GameObject, int> items = new Dictionary<GameObject, int>();  // 아이템들을 점수와 함께 저장할 딕셔너리
+    protected Dictionary<GameObject, int> items = new Dictionary<GameObject, int>();  // 아이템들을 점수와 함께 저장할 딕셔너리
 
-	public abstract void Contact();     // 플레이어랑 닿았을 때 함수
+	public abstract void ContactWithPlayer();     // 플레이어랑 닿았을 때 함수
                                         // 1. Destroy
                                         // 2. UI점수 올리기
 
@@ -41,16 +41,15 @@ public abstract class Item : MonoBehaviour
             gameObject.transform.Translate(Vector2.left * ScrollSpeed * Time.deltaTime);
             Destroy(gameObject, 5f);
             yield return null;
-
         }
 	}
-
-
+    
+    /*
 	public void MagnetItemRole()
 	{
 		// 이 함수가 호출되면 아이템은 Pet의 위치로 이동해야함
 		gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, pet.transform.position, 1f);
-	}
+	}*/
 
     // 이거 왜 충돌체 감지 안 할까!\
     private void OnTriggerEnter2D(Collider2D collision)

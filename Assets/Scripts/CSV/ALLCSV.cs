@@ -55,11 +55,13 @@ public class ALLCSV : MonoBehaviour
 
 	private void OnDisable()
 	{
-		StopAllCoroutines();
+		StopCoroutine(CSVRoutine());
 	}
 
 	IEnumerator CSVRoutine()
 	{
+		yield return new WaitForSeconds(1f);
+
 		// lines[0]에는 아이템과 장애물이 무엇인지의 정보가 있고,
 		// lines[1]부터 Instantiate 해주면 됨 그다음은 [2], [3] 이렇게,,,
 		// 프리팹 이름들이 있는 lines[0] 부분만 일단 가져오기

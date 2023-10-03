@@ -10,7 +10,7 @@ public class SilverCoin : Item
 		items.Add(gameObject, 5);  // items 딕셔너리에 추가
     }
 
-    public override void Contact()
+    public override void ContactWithPlayer()
 	{
 		gameObject.SetActive(false);
 		GameManager.Data.AddCoinCount(items[gameObject]);  // 실버코인 먹으면 점수 1씩 증가
@@ -20,7 +20,7 @@ public class SilverCoin : Item
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			Contact();
+			ContactWithPlayer();
 			SoundManager.instance.SFXPlay("SoundEff_GetCoinJelly", getSound);
 		}
 	}
