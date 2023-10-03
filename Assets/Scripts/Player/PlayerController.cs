@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
 	void OnSlide(InputValue value)
 	{
 		Slide();
+
 		SoundManager.instance.SFXPlay("cookie0001_slide", slideSound);
 	}
 

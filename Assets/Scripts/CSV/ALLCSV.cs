@@ -65,23 +65,28 @@ public class ALLCSV : MonoBehaviour
 		// lines[0]에는 아이템과 장애물이 무엇인지의 정보가 있고,
 		// lines[1]부터 Instantiate 해주면 됨 그다음은 [2], [3] 이렇게,,,
 		// 프리팹 이름들이 있는 lines[0] 부분만 일단 가져오기
-		names = lines[0].Split(',');	// names 들에 프리팹 이름들이 순서대로 저장됨.
 
-		for (int i = 1; i < lines.Length; ++i)
+		int linesLength = lines.Length;
+		// int valuesLength = values.Length;
+
+
+		for (int i = 1; i < linesLength; ++i)
 		{
-			values = lines[i].Split(','); 
-			
-			for (int j = 0; j < values.Length; ++j)
+			values = lines[i].Split(',');
+
+            int valuesLength = values.Length;
+            
+			for (int j = 0; j < valuesLength; ++j)
 			{
-				if (j == 0 && float.Parse(values[0]) != 0)		// values의 값이 0이 아니라면 생성!
+				if (j == 0 && float.Parse(values[0]) != 0)      // values의 값이 0이 아니라면 생성
 				{
 					Instantiate(JumpOb, new Vector3(13, float.Parse(values[0]), 0), Quaternion.identity);
 				}
-				if (j == 1 && float.Parse(values[1]) != 0)	
+				if (j == 1 && float.Parse(values[1]) != 0)
 				{
 					Instantiate(SlideOb, new Vector3(13, float.Parse(values[1]), 0), Quaternion.identity);
 				}
-				if (j == 2 && float.Parse(values[2]) != 0)	
+				if (j == 2 && float.Parse(values[2]) != 0)
 				{
 					Instantiate(Blue, new Vector3(13, float.Parse(values[2]), 0), Quaternion.identity);
 				}
@@ -93,11 +98,11 @@ public class ALLCSV : MonoBehaviour
 				{
 					Instantiate(Sliver, new Vector3(13, float.Parse(values[4]), 0), Quaternion.identity);
 				}
-				if (j == 5 && float.Parse(values[5]) != 0)		
+				if (j == 5 && float.Parse(values[5]) != 0)
 				{
 					Instantiate(Gold, new Vector3(13, float.Parse(values[5]), 0), Quaternion.identity);
 				}
-				if (j == 6 && float.Parse(values[6]) != 0)	
+				if (j == 6 && float.Parse(values[6]) != 0)
 				{
 					Instantiate(Bigger, new Vector3(13, float.Parse(values[6]), 0), Quaternion.identity);
 				}
@@ -109,5 +114,6 @@ public class ALLCSV : MonoBehaviour
 
 			yield return new WaitForSeconds(0.2f);
 		}
+		
 	}
 }
