@@ -29,13 +29,5 @@ public class MagnetControl : MonoBehaviour
 			items.Add(col.gameObject);
 		}
 	}
-
-	private void OnTriggerExit2D(Collider2D col)
-	{
-		if (col.tag == "Item")
-		{
-			//isTrigger = false;
-		}
-	}
 }
 

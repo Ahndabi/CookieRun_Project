@@ -15,12 +15,24 @@ public class GoldCoin : Item
 		GameManager.Data.AddCoinCount(items[gameObject]);  // 골드코인 먹으면 점수 5씩 증가
 	}
 
-	private void OnTriggerEnter2D(Collider2D col)
+    public override void ContactWithPet()
+    {
+        gameObject.SetActive(false);
+        GameManager.Data.AddJellyCount(items[gameObject]);  // 곰돌이 젤리 먹으면 점수 22씩 증가
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.gameObject.tag == "Player")
 		{
 			ContactWithPlayer();
 			SoundManager.instance.SFXPlay("SoundEff_GetGoldJelly", getSound);
 		}
-	}
+
+        if (col.gameObject.layer == 10)
+        {
+            ContactWithPet(); 
+            SoundManager.instance.SFXPlay("SoundEff_GetGoldJelly", getSound);
+        }
+    }
 }

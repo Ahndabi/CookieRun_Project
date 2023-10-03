@@ -15,20 +15,25 @@ public class HeartLife : Item
 		gameObject.SetActive(false);
 	}
 
-	private void OnTriggerEnter2D(Collider2D col)
+    public override void ContactWithPet()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.gameObject.tag == "Player")
 		{
 			ContactWithPlayer();
-			// ChargeHeartUI();
 			GameManager.Data.IncreaseHp(20);
 			SoundManager.instance.SFXPlay("SoundEff_GetJelly", getSound);
 		}
-	}
 
-	void ChargeHeartUI()	// UI의 HeartLife 바 충전하는 함수
-	{
-		GameManager.UI.curHP += 20f;
-
-	}
+        if (col.gameObject.layer == 10)
+        {
+            ContactWithPet();
+            GameManager.Data.IncreaseHp(20);
+            SoundManager.instance.SFXPlay("SoundEff_GetJelly", getSound);
+        }
+    }
 }

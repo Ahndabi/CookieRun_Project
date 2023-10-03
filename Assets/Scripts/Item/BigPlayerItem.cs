@@ -22,15 +22,25 @@ public class BigPlayerItem : Item
 		// TODO : 그리고 작아질 때 플레이어 깜빡깜빡
 		anim.SetTrigger("Bigger");
 		gameObject.SetActive(false);
-
 	}
 
-	// 이 아이템을 먹으면 플레이어가 커짐 
-	private void OnTriggerEnter2D(Collider2D col)
+    public override void ContactWithPet()
+    {
+        gameObject.SetActive(false);
+    }
+
+    // 이 아이템을 먹으면 플레이어가 커짐 
+    private void OnTriggerEnter2D(Collider2D col)
 	{
 		if(col.tag == "Player")
 		{
 			ContactWithPlayer();
 		}
-	}
+
+        if (col.gameObject.layer == 10)
+        {
+            ContactWithPet();
+            SoundManager.instance.SFXPlay("SoundEff_GetItemBearJelly", getSound);
+        }
+    }
 }

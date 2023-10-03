@@ -21,7 +21,13 @@ public class Magnet : Item
 		pet.Magnet();   // < 이 함수 안에 모든 기능 구현
 	}
 
-	private void OnTriggerEnter2D(Collider2D col)
+    public override void ContactWithPet()
+    {
+        gameObject.SetActive(false);
+        GameManager.Data.AddJellyCount(items[gameObject]);  // 곰돌이 젤리 먹으면 점수 22씩 증가
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.gameObject.tag == "Player")
 		{

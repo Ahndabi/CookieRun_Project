@@ -18,12 +18,24 @@ public class BlueJelly : Item
 		GameManager.Data.AddJellyCount(items[gameObject]);  // Á©¸® ¸ÔÀ¸¸é Á¡¼ö 10¾¿ Áõ°¡
 	}
 
-	private void OnTriggerEnter2D(Collider2D col)
+    public override void ContactWithPet()
+    {
+        gameObject.SetActive(false);
+        GameManager.Data.AddJellyCount(items[gameObject]);  // °õµ¹ÀÌ Á©¸® ¸ÔÀ¸¸é Á¡¼ö 22¾¿ Áõ°¡
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "Player")
+		if (col.gameObject.tag == "Player")
 		{
 			ContactWithPlayer();
 			SoundManager.instance.SFXPlay("SoundEff_GetJelly", getSound);
 		}
-	}
+
+        if (col.gameObject.layer == 10)
+        {
+            ContactWithPet();
+            SoundManager.instance.SFXPlay("SoundEff_GetItemBearJelly", getSound);
+        }
+    }
 }
