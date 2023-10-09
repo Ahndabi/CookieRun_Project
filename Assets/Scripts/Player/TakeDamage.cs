@@ -15,22 +15,15 @@ public class TakeDamage : MonoBehaviour
 
 	Vector3 cameraPos;
 	Animator anim;
-	SpriteRenderer sp;
-	Material mat;
-	Color oriMat;
 
 	private void Awake()
 	{
 		anim = GetComponent<Animator>();
-		sp = GetComponent<SpriteRenderer>();
 	}
 
 	private void Start()
 	{
 		cameraPos = Camera.main.transform.position;     // 카메라 위치는 시작할 때의 카메라 위치
-		mat = sp.material;
-		oriMat.a = gameObject.GetComponent<SpriteRenderer>().material.color.a;    // 현재 기본 플레이어의 Matrial
-
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)
@@ -44,7 +37,7 @@ public class TakeDamage : MonoBehaviour
 
 			StartCoroutine(CameraShakeRoutine());			// 카메라 흔드는 함수 호출
 			StartCoroutine(IgnoreLayerRoutine());			// 2초 동안 IgnoreLayer 함수를 반복해서 계속 호출
-															//StartCoroutine(PlayerTransparencyRoutine());	// 플레이어 투명화
+															// StartCoroutine(PlayerTransparencyRoutine());	// 플레이어 투명화
 		}
 	}
 
@@ -68,5 +61,4 @@ public class TakeDamage : MonoBehaviour
 		yield return new WaitForSeconds(0.1f);
 		Camera.main.transform.position = cameraPos;		// 카메라 위치 원상복구
 	}
-
 }

@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.GraphicsBuffer;
@@ -24,7 +22,6 @@ public class BigPlayerController : MonoBehaviour
 		Destroy(takeDamage);
 		StartCoroutine(OriginalSizeRoutine());
 		StartCoroutine(AddTakeDamageRoutine());
-		
 	}
 
 	IEnumerator OriginalSizeRoutine()

@@ -10,7 +10,6 @@ public class MagnetRange : MonoBehaviour
     {
         if (col.gameObject.tag == "Item")  // 아이템이랑 닿으면 그 아이템이 내 부모에게 오도록
         {
-            Debug.Log("아이템이 자석충돌체에 닿음");
             col.gameObject.transform.position = Vector3.MoveTowards(col.gameObject.transform.position, pet.transform.position, 1f);
         }
     }

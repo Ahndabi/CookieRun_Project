@@ -4,20 +4,9 @@ using UnityEngine;
 
 public class DiePlayerInfo : MonoBehaviour
 {
-	// DiePlayer는 Player의 위치를 그대로 따라다녀야 함. LateUpdate를 쓰면 될듯
+	// DiePlayer는 Player의 위치를 그대로 따라다녀야 함. LateUpdate 사용
 
 	public Transform Player;
-
-	private void Awake()
-	{
-        // Player = GameObject.FindWithTag("Player").transform;
-        // gameObject.SetActive(false);
-    }
-
-    private void Start()
-    {
-        // gameObject.SetActive(false);
-    }
 
     private void OnEnable()
     {

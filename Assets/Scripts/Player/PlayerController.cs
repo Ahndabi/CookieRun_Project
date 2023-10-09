@@ -6,10 +6,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+	// 점프, 슬라이드, 애니메이션 
+
 	[SerializeField] float jumpSpeed;
 	bool isGrounded = true;
 	bool oneJump = false;       // 1단 점프를 한 번 했는지
-	bool isSlide = false;
 	public bool isJump = false;
 
 	public AudioClip jumpSound;
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
 		gameObject.SetActive(true);
     }
 
-    public void Jump()
+    protected virtual void Jump()
 	{
 		// 2단 점프만 가능하도록 
 		if (GroundCheck())       // 1. 바닥이면 점프가능
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
 		Jump();
 	}
 
-	private bool GroundCheck()
+	protected virtual bool GroundCheck()
 	{
 		// 바닥인지 체크하고 2단 점프만 가능하도록 해야함
 
@@ -74,7 +75,6 @@ public class PlayerController : MonoBehaviour
 		{
 			hit = Physics2D.Raycast(transform.position, Vector2.down, 2f, LayerMask.GetMask("Ground"));
 		}
-
 
 		if (hit.collider != null)	// 레이어 부딪힌 게 있는 경우
 		{
@@ -95,12 +95,12 @@ public class PlayerController : MonoBehaviour
 		SoundManager.instance.SFXPlay("cookie0001_slide", slideSound);
 	}
 
-	public void Slide()
+	protected virtual void Slide()
 	{
 		anim.SetTrigger("Slide");
 	}
 
-	public void Move()
+    protected virtual void Move()
 	{
 		anim.SetTrigger("Move");
 	}

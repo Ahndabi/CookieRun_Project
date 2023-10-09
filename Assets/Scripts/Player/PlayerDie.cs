@@ -10,7 +10,7 @@ public class PlayerDie : MonoBehaviour
 	// 죽으면 애니메이션
 	// 플레이어 작동 금지
 	// 2.5 ~ 3초 뒤에 점수 나옴
-	public UnityEvent OnDie;
+	public UnityEvent OnDie = new UnityEvent();
 	public GameObject DiePlayer;	// 드래그로 씬에 있는 DiePlayer를 넣어줌
 	public GameObject Player;
 	AudioClip dieSound;
@@ -26,7 +26,6 @@ public class PlayerDie : MonoBehaviour
 
 	private void Start()
 	{
-		// gameObject.SetActive(true);
         cameraPos = Camera.main.transform.position;     // 시작할 때의 카메라 위치
         StartCoroutine(CheckDieRoutine());
 	}
@@ -66,9 +65,6 @@ public class PlayerDie : MonoBehaviour
 
 		// inputsystem 비활성화. 점프 안되게
 		inputSystem.enabled = false;
-
-		// 죽는 소리
-		// SoundManager.instance.SFXPlay("SoundEff_GameEnd", dieSound); -> 얘 왜 끝없이 나와ㅜ
 	}
 
 	IEnumerator ShowGameResultUI()
