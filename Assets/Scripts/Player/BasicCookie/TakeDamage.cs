@@ -46,14 +46,14 @@ public class TakeDamage : MonoBehaviour
 		StopAllCoroutines();
 	}
 
-	IEnumerator IgnoreLayerRoutine()		// *** 여기서 레이어 무시한 뒤 1.5초 안 지나고 BigItem먹으면 레이어 무시된 채로 이 스크립트 삭제돼서 Destroy안됨 ㅜㅜ
+	protected virtual IEnumerator IgnoreLayerRoutine()		// *** 여기서 레이어 무시한 뒤 1.5초 안 지나고 BigItem먹으면 레이어 무시된 채로 이 스크립트 삭제돼서 Destroy안됨 ㅜㅜ
 	{
 		Physics2D.IgnoreLayerCollision(3, 8, true);           // 장애물 콜라이더(레이어) 무시하기
 		yield return new WaitForSeconds(1.5f);
 		Physics2D.IgnoreLayerCollision(3, 8, false);    // 다시 레이어 체크
 	}
 
-	IEnumerator CameraShakeRoutine()
+	protected virtual IEnumerator CameraShakeRoutine()
 	{
 		float x = Random.Range(0f, 0.8f);
 		float y = Random.Range(0f, 0.8f);

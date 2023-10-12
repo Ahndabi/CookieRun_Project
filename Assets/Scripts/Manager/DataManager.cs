@@ -19,10 +19,6 @@ public class DataManager : MonoBehaviour
 	public UnityAction<int> OnCointChanged;
 	public UnityAction<int> OnTakeDamage;   // 데미지 받을 때 = HP 닳을 때
 
-    private void Enable()
-    {
-    }
-
     private void OnEnable()
     {
 		hp = maxHp;

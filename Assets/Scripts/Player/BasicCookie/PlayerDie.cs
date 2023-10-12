@@ -13,15 +13,14 @@ public class PlayerDie : MonoBehaviour
 	public UnityEvent OnDie = new UnityEvent();
 	public GameObject DiePlayer;	// 드래그로 씬에 있는 DiePlayer를 넣어줌
 	public GameObject Player;
-	AudioClip dieSound;
 	PlayerInput inputSystem;
 	Vector3 cameraPos;
+	protected Animator anim;
 
 	private void Awake()
 	{
 		inputSystem = GetComponent<PlayerInput>();
 		Player = GameObject.FindWithTag("Player");
-		dieSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GameEnd");
 	}
 
 	private void Start()
@@ -30,12 +29,7 @@ public class PlayerDie : MonoBehaviour
         StartCoroutine(CheckDieRoutine());
 	}
 
-    private void OnDisable()
-    {
-		// StopCoroutine(CheckDieRoutine());
-    }
-
-    IEnumerator CheckDieRoutine()
+    protected virtual IEnumerator CheckDieRoutine()
 	{
 		while (true)
         {
@@ -47,15 +41,12 @@ public class PlayerDie : MonoBehaviour
         }
 	}
 
-	void Die()
+	protected virtual void Die()
 	{
 		StartCoroutine(ShowGameResultUI());
 
 		OnDie?.Invoke();
 
-		// 현재 Player는 비활성화, DiePlayer 활성화
-		DiePlayer.SetActive(true);
-		Player.SetActive(false);
 
 		// 시간 멈춤. 애니메이션은 Animator에서 Update Mode는 Unscaled Time으로 설정해서 애니메이션만 진행되게 함
 		Time.timeScale = 0;
@@ -65,9 +56,13 @@ public class PlayerDie : MonoBehaviour
 
 		// inputsystem 비활성화. 점프 안되게
 		inputSystem.enabled = false;
-	}
 
-	IEnumerator ShowGameResultUI()
+        // 현재 Player는 비활성화, DiePlayer 활성화
+        DiePlayer.SetActive(true);
+        Player.SetActive(false);
+    }
+
+	protected IEnumerator ShowGameResultUI()
 	{
 		yield return new WaitForSeconds(2f);
 		GameManager.UI.ShowPopUpUI<PopUpUI>("UI/GameResultUI");
