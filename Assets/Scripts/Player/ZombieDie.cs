@@ -7,18 +7,6 @@ public class ZombieDie : PlayerDie
 {
     bool oneDie = false;
 
-    protected override IEnumerator CheckDieRoutine()
-    {
-        while (true)
-        {
-            if (GameManager.Data.HP <= 0)
-            {
-                Die();
-            }
-            yield return null;
-        }
-    }
-
     protected override void Die()
     {
         base.Die();
@@ -33,7 +21,6 @@ public class ZombieDie : PlayerDie
             Player.SetActive(true);
             DiePlayer.SetActive(false);
             anim.SetTrigger("IsDie");
-            Debug.Log("!oneDie");
         }
     }
 
@@ -43,9 +30,7 @@ public class ZombieDie : PlayerDie
 
         Time.timeScale = 1.0f;
 
-        // StopCorutine(점수UI나오는 코루틴) 멈춰
         StopCoroutine(ShowGameResultUI());
-        Debug.Log("부활");
         inputSystem.enabled = true;
         anim.SetTrigger("Move");
     }
