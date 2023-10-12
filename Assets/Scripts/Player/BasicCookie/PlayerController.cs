@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : PlayerBase
 {
 	// 점프, 슬라이드, 애니메이션 
 
@@ -16,13 +16,13 @@ public class PlayerController : MonoBehaviour
 	public AudioClip jumpSound;
 	public AudioClip slideSound;
 	Rigidbody2D rb;
-	public Animator anim;
 
-	private void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
+
 		jumpSound = GameManager.Resource.Load<AudioClip>("Sound/cookie0001_jump");
 		slideSound = GameManager.Resource.Load<AudioClip>("Sound/cookie0001_slide");
-		anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
 	}
 

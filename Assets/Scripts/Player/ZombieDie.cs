@@ -6,14 +6,10 @@ public class ZombieDie : PlayerDie
 {
     bool oneSpawn = false;
 
-
     protected override IEnumerator CheckDieRoutine()
     {
         return base.CheckDieRoutine();
-
-        
     }
-
     
     void ZombieSpawn()      // oneSpawn이 false 면 호출될 함수
     {
@@ -27,7 +23,6 @@ public class ZombieDie : PlayerDie
         // gameObejct.활성화 -> 지금 이 오브젝트는 LivePlayer임
         // DiePlayer.SetActive(false);
         // Hp는 30으로 변경. -> Hp 관리하는 클래스에서 HP 30으로 해주는 함수를 만들어서 이거 호출
-
     }
 
     IEnumerator SpawnAnimationRoutine()

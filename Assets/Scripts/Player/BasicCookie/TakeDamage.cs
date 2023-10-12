@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TakeDamage : MonoBehaviour
+public class TakeDamage : PlayerBase
 {
 	// 데미지를 받을 때!의 상태를 구현해주기
 	// 1. 배경이 벌겋게 됨
@@ -14,12 +14,6 @@ public class TakeDamage : MonoBehaviour
 	// HP가 30% 정도 남으면 배경 벌겋게 깜빡깜빡거림
 
 	Vector3 cameraPos;
-	Animator anim;
-
-	private void Awake()
-	{
-		anim = GetComponent<Animator>();
-	}
 
 	private void Start()
 	{

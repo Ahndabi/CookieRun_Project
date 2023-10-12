@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerBase : MonoBehaviour
 {
     // HP
     // Animation
     
-    protected Animator anim;
+    public Animator anim;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerDie : MonoBehaviour
+public class PlayerDie : PlayerBase
 {
 	// HP curHP값이 0이면 Die
 	// 죽으면 애니메이션
@@ -15,10 +15,10 @@ public class PlayerDie : MonoBehaviour
 	public GameObject Player;
 	PlayerInput inputSystem;
 	Vector3 cameraPos;
-	protected Animator anim;
 
-	private void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
 		inputSystem = GetComponent<PlayerInput>();
 		Player = GameObject.FindWithTag("Player");
 	}
