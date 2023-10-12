@@ -26,13 +26,15 @@ public class PlayerDie : PlayerBase
 	private void Start()
 	{
         cameraPos = Camera.main.transform.position;     // 시작할 때의 카메라 위치
-        StartCoroutine(CheckDieRoutine());
-	}
+		StartCoroutine(CheckDieRoutine());
+    }
 
-    protected virtual IEnumerator CheckDieRoutine()
+
+    public virtual IEnumerator CheckDieRoutine()
 	{
 		while (true)
         {
+			Debug.Log("CheckDieRoutine");
             if (GameManager.Data.HP <= 0)
             {
                 Die();

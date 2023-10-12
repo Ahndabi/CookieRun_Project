@@ -44,7 +44,7 @@ public abstract class Pet : MonoBehaviour
 
 	private void OnDisable()
 	{
-		StopAllCoroutines();
+		StopCoroutine(MagnetRoutine());
 	}
 
 	IEnumerator MagnetRoutine()		// 자석먹은 펫 기능 여기에 구현(3초 동안 실행)

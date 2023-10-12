@@ -22,9 +22,14 @@ public class HPbarUI : MonoBehaviour
         StartCoroutine(DecreaseHPBarRoutine());
     }
 
+    private void OnDisable()
+    {
+        StopCoroutine(DecreaseHPBarRoutine());
+    }
+
     IEnumerator DecreaseHPBarRoutine()
 	{
-		while (true)	// TODO : 코루틴 종료 조건 없음
+		while (true)
 		{
 			GameManager.Data.ChangeHp();
 			Hpbar.value = GameManager.Data.HP;

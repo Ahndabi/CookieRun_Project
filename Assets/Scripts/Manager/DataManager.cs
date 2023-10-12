@@ -22,7 +22,6 @@ public class DataManager : MonoBehaviour
     private void OnEnable()
     {
 		hp = maxHp;
-
     }
 
     public void AddJellyCount(int count)
@@ -49,7 +48,12 @@ public class DataManager : MonoBehaviour
 
 	public void ChangeHp()
 	{
-		hp -= Time.deltaTime * 5;
+		// TODO : 나중에 5로 변경해주기. 지금은 디버깅
+		hp -= Time.deltaTime * 20;
 	}
 
+	public void ZombieSpawnHp()
+	{
+		hp = 30f;
+	}
 }

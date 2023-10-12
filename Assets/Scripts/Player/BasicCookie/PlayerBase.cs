@@ -13,4 +13,5 @@ public class PlayerBase : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
+
 }

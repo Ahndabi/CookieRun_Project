@@ -123,26 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &341500734 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9213680859628943961, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
-  m_PrefabInstance: {fileID: 6320414498827534322}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &341500746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341500734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f6028aff86827840b97578eb765d9e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  DiePlayer: {fileID: 341500734}
-  Player: {fileID: 1030927610}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,11 +304,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1030927610 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6320414499058604903, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
-  m_PrefabInstance: {fileID: 6320414498827534322}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1333831414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -754,10 +729,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllZombieCookie
       objectReference: {fileID: 0}
-    - target: {fileID: 6320414497141834618, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6320414497141834619, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -801,18 +772,6 @@ PrefabInstance:
     - target: {fileID: 6320414497141834619, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6320414499058604911, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
-      propertyPath: m_UpdateMode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9213680859628943961, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9213680859628943961, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}

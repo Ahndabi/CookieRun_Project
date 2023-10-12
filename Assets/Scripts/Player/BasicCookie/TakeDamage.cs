@@ -31,13 +31,7 @@ public class TakeDamage : PlayerBase
 
 			StartCoroutine(CameraShakeRoutine());			// 카메라 흔드는 함수 호출
 			StartCoroutine(IgnoreLayerRoutine());			// 2초 동안 IgnoreLayer 함수를 반복해서 계속 호출
-															// StartCoroutine(PlayerTransparencyRoutine());	// 플레이어 투명화
 		}
-	}
-
-	private void OnDisable()
-	{
-		StopAllCoroutines();
 	}
 
 	protected virtual IEnumerator IgnoreLayerRoutine()		// *** 여기서 레이어 무시한 뒤 1.5초 안 지나고 BigItem먹으면 레이어 무시된 채로 이 스크립트 삭제돼서 Destroy안됨 ㅜㅜ

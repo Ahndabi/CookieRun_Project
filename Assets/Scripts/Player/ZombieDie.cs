@@ -7,6 +7,11 @@ public class ZombieDie : PlayerDie
 {
     bool oneDie = false;
 
+    private void OnDisable()
+    {
+        StopCoroutine(CheckDieRoutine());
+    }
+
     protected override void Die()
     {
         base.Die();
@@ -21,12 +26,13 @@ public class ZombieDie : PlayerDie
             Player.SetActive(true);
             DiePlayer.SetActive(false);
             anim.SetTrigger("IsDie");
+            Debug.Log("override Die");
         }
     }
 
     public void ZombieSpawn()      // Spawn 애니메이션이 끝날 때 붙여줄 이벤트
     {
-        // TODO : HP가 30으로 변경
+        GameManager.Data.ZombieSpawnHp();
 
         Time.timeScale = 1.0f;
 
