@@ -18,7 +18,6 @@ public class HPbarUI : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("Ω√¿€");
         Hpbar.value = GameManager.Data.maxHp;
         StartCoroutine(DecreaseHPBarRoutine());
     }

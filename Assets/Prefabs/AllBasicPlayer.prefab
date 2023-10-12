@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887cd54da0175d64599f537ee2cb5fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!114 &1279511698351298169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb54de04a70b5b48beaee86caa9819d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!114 &5616297301342765862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,11 +526,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea1e50aec76b8943a9f4a82bea896f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   jumpSpeed: 20
   isJump: 0
   jumpSound: {fileID: 0}
   slideSound: {fileID: 0}
-  anim: {fileID: 0}
 --- !u!114 &2319292917463259591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887cd54da0175d64599f537ee2cb5fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!114 &1724644022171493789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,6 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed46970dd87a554aa4a5903bcf06d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   OnDie:
     m_PersistentCalls:
       m_Calls:
@@ -638,3 +642,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb54de04a70b5b48beaee86caa9819d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}

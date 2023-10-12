@@ -121,6 +121,8 @@ GameObject:
   - component: {fileID: 6320414499058604905}
   - component: {fileID: 306848929}
   - component: {fileID: 306848930}
+  - component: {fileID: 1030927622}
+  - component: {fileID: 1030927623}
   m_Layer: 3
   m_Name: LiveZombie
   m_TagString: Player
@@ -322,11 +324,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8217f98d2add674b85d235477d77e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   jumpSpeed: 20
   isJump: 0
   jumpSound: {fileID: 0}
   slideSound: {fileID: 0}
-  anim: {fileID: 0}
 --- !u!114 &306848930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6028aff86827840b97578eb765d9e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   OnDie:
     m_PersistentCalls:
       m_Calls:
@@ -356,6 +359,33 @@ MonoBehaviour:
         m_CallState: 2
   DiePlayer: {fileID: 9213680859628943961}
   Player: {fileID: 0}
+--- !u!114 &1030927622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320414499058604903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487009ce17fad9347a4cbc247520f190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+--- !u!114 &1030927623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320414499058604903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fa4536f379c9647a80aa58719392ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  zombieTakeDamage: {fileID: 0}
 --- !u!1 &9213680858837463622
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887cd54da0175d64599f537ee2cb5fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!114 &9213680859628943954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb54de04a70b5b48beaee86caa9819d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!114 &6320414498715070816
 MonoBehaviour:
   m_ObjectHideFlags: 0

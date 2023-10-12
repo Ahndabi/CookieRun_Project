@@ -10,15 +10,15 @@ public class PlayerDie : PlayerBase
 	// 죽으면 애니메이션
 	// 플레이어 작동 금지
 	// 2.5 ~ 3초 뒤에 점수 나옴
-	public UnityEvent OnDie = new UnityEvent();
 	public GameObject DiePlayer;	// 드래그로 씬에 있는 DiePlayer를 넣어줌
 	public GameObject Player;
-	PlayerInput inputSystem;
+	protected PlayerInput inputSystem;
 	Vector3 cameraPos;
 
 	protected override void Awake()
 	{
 		base.Awake();
+
 		inputSystem = GetComponent<PlayerInput>();
 		Player = GameObject.FindWithTag("Player");
 	}
@@ -44,9 +44,6 @@ public class PlayerDie : PlayerBase
 	protected virtual void Die()
 	{
 		StartCoroutine(ShowGameResultUI());
-
-		OnDie?.Invoke();
-
 
 		// 시간 멈춤. 애니메이션은 Animator에서 Update Mode는 Unscaled Time으로 설정해서 애니메이션만 진행되게 함
 		Time.timeScale = 0;
