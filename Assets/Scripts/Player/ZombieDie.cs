@@ -34,7 +34,6 @@ public class ZombieDie : PlayerDie
             Player.SetActive(true);
             DiePlayer.SetActive(false);
             anim.SetTrigger("IsDie");
-            Debug.Log("override Die");
         }
     }
 
@@ -55,5 +54,6 @@ public class ZombieDie : PlayerDie
         Destroy(takeDamage);
         yield return new WaitForSeconds(2f);
         gameObject.AddComponent<ZombieTakeDamage>();
+        Physics2D.IgnoreLayerCollision(3, 8, false);    // 다시 레이어 체크
     }
 }
