@@ -1,23 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LobbySceneUI : SceneUI
 {
-	GameObject Player;
-
 	private void Awake()
 	{
 		base.Awake();
 
-		Player = GameManager.Resource.Load<GameObject>("Prefabs/Player");
 		buttons["StartButton"].onClick.AddListener(() => { GameScene(); });
+		buttons["ChooseCookieButton"].onClick.AddListener(() => { GameManager.UI.ShowWindowUI<WindowUI>("UI/ChooseCookiePopUpUI"); });
 	}
 
-	// 게임 씬으로 넘어가는 함수
-	void GameScene()
-	{
+	void GameScene()    // 게임 씬으로 넘어가는 함수
+    {
 		GameManager.Scene.StartGameScene();
+    }
+
+    void ChooseCookiePopUpUI()		// 쿠키 선택 창으로 넘어가는 함수
+	{
+		Debug.Log("쿠키 선택 창");
 	}
 }

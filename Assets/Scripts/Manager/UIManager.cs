@@ -59,6 +59,7 @@ public class UIManager : MonoBehaviour
 	}
 
 
+	
 	public T ShowPopUpUI<T>(T popUpUI) where T : PopUpUI
 	{
 		if (popUpStack.Count > 0)
@@ -106,10 +107,6 @@ public class UIManager : MonoBehaviour
 		}
 	}
 
-
-	/*
-	 * WindowUI랑 InGameUI는 아직 안 써서 주석해놨음
-	 * 
 	public T ShowWindowUI<T>(T windowUI) where T : WindowUI
 	{
 		T ui = GameManager.Pool.GetUI(windowUI);
@@ -142,6 +139,7 @@ public class UIManager : MonoBehaviour
 		}
 	}
 
+	/*
 	public T ShowInGameUI<T>(T gameUi) where T : InGameUI
 	{
 		T ui = GameManager.Pool.GetUI(gameUi);
