@@ -225,6 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedbf8a0c9091fd4c8032cb0b0e0f390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombieCookie: {fileID: 3175099472291294566}
+  braveCookie: {fileID: 3175099472154040644}
 --- !u!1 &3175099472154040644
 GameObject:
   m_ObjectHideFlags: 0

@@ -206,7 +206,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &519420033
 AudioSource:
@@ -357,11 +357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377267725451289027, guid: 7d3491f178e336a409612ac6948e2aa8, type: 3}
       propertyPath: m_Name
-      value: AllBasicCookie
+      value: AllBraveCookie
       objectReference: {fileID: 0}
     - target: {fileID: 4377267725451289027, guid: 7d3491f178e336a409612ac6948e2aa8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d3491f178e336a409612ac6948e2aa8, type: 3}
@@ -431,7 +431,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1921771245075050066, guid: d676c7dbd023af241b7ed0d75b50cce9, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1921771245075050066, guid: d676c7dbd023af241b7ed0d75b50cce9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -488,7 +488,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1584371701522226691, guid: fc88c03b92d70da4fbfcb990fa5efa03, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1584371701522226691, guid: fc88c03b92d70da4fbfcb990fa5efa03, type: 3}
       propertyPath: m_LocalPosition.x
@@ -557,7 +557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2610096256904817066, guid: 0e054f90927be324c9e025e83f610a0d, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2610096256904817066, guid: 0e054f90927be324c9e025e83f610a0d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -674,7 +674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2856163502161995258, guid: 1b4202f58d655c141b14d42faca889fd, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2856163502161995258, guid: 1b4202f58d655c141b14d42faca889fd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -728,6 +728,10 @@ PrefabInstance:
     - target: {fileID: 6320414497141834618, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
       propertyPath: m_Name
       value: AllZombieCookie
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320414497141834618, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6320414497141834619, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
       propertyPath: m_RootOrder
@@ -784,7 +788,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6910839933748577696, guid: ba852e8541e21684eab043d0319cd182, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6910839933748577696, guid: ba852e8541e21684eab043d0319cd182, type: 3}
       propertyPath: m_LocalPosition.x

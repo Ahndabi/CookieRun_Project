@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 2563017040698009191}
   - component: {fileID: 4748844248789747364}
   m_Layer: 5
-  m_Name: ChooseCookiePopUpUI
+  m_Name: ChooseCookieWindowUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

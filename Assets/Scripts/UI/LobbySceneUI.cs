@@ -6,21 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class LobbySceneUI : SceneUI
 {
+	GameObject zombieCookie;
+	GameObject braveCookie;
+
 	private void Awake()
 	{
 		base.Awake();
 
 		buttons["StartButton"].onClick.AddListener(() => { GameScene(); });
-		buttons["ChooseCookieButton"].onClick.AddListener(() => { GameManager.UI.ShowWindowUI<WindowUI>("UI/ChooseCookiePopUpUI"); });
+		buttons["ChooseCookieButton"].onClick.AddListener(() => { GameManager.UI.ShowWindowUI<WindowUI>("UI/ChooseCookieWindowUI"); });
 	}
 
 	void GameScene()    // 게임 씬으로 넘어가는 함수
     {
 		GameManager.Scene.StartGameScene();
     }
-
-    void ChooseCookiePopUpUI()		// 쿠키 선택 창으로 넘어가는 함수
-	{
-		Debug.Log("쿠키 선택 창");
-	}
 }
