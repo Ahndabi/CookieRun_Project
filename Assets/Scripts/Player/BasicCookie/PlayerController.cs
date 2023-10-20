@@ -15,7 +15,6 @@ public class PlayerController : PlayerBase
 
 	public AudioClip jumpSound;
 	public AudioClip slideSound;
-	Rigidbody2D rb;
 
 	protected override void Awake()
 	{
@@ -23,7 +22,6 @@ public class PlayerController : PlayerBase
 
 		jumpSound = GameManager.Resource.Load<AudioClip>("Sound/cookie0001_jump");
 		slideSound = GameManager.Resource.Load<AudioClip>("Sound/cookie0001_slide");
-		rb = GetComponent<Rigidbody2D>();
 	}
 
     private void Start()

@@ -15,10 +15,6 @@ public class UIManager : MonoBehaviour
 
 	private Canvas inGameCanvas;
 
-	// HP 관리
-	public float maxHP = 100;
-	public float curHP;
-
 
 	private void Awake()
 	{
@@ -40,24 +36,6 @@ public class UIManager : MonoBehaviour
 		inGameCanvas.gameObject.name = "InGameCanvas";
 		inGameCanvas.sortingOrder = 0;
 	}
-	
-	private void Start()
-	{
-		curHP = maxHP;      // 처음에는 Hp가 max여야 한다.
-	}
-
-	// 데미지를 받으면 hp가 감소한다. 
-	public void TakeDamageHP(float damage)
-	{
-		curHP -= damage;
-	}
-
-	// HP가 0이 될 때까지 시간이 지나면서 계속 HP가 감소한다.
-	public void ChangedHP()
-	{
-		curHP -= Time.deltaTime * 5;
-	}
-
 
 	
 	public T ShowPopUpUI<T>(T popUpUI) where T : PopUpUI
@@ -72,7 +50,6 @@ public class UIManager : MonoBehaviour
 		ui.transform.SetParent(popUpCanvas.transform, false);
 		popUpStack.Push(ui);
 
-		// 캐릭터 움직임도 멈췄음 좋겠어서 Animator를 뺐음
 		Time.timeScale = 0f;
 		return ui;
 	}

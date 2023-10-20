@@ -12,14 +12,12 @@ public class PlayerDie : PlayerBase
 	// 2.5 ~ 3초 뒤에 점수 나옴
 	public GameObject DiePlayer;	// 드래그로 씬에 있는 DiePlayer를 넣어줌
 	public GameObject Player;
-	protected PlayerInput inputSystem;
 	Vector3 cameraPos;
 
 	protected override void Awake()
 	{
 		base.Awake();
 
-		inputSystem = GetComponent<PlayerInput>();
 		Player = GameObject.FindWithTag("Player");
 	}
 

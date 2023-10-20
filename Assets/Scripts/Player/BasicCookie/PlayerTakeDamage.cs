@@ -3,16 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TakeDamage : PlayerBase
+public class PlayerTakeDamage : PlayerBase
 {
-	// 데미지를 받을 때!의 상태를 구현해주기
-	// 1. 배경이 벌겋게 됨
-	// 2. 애니메이션		0
-	// 3. 2초간 무적되기	0 + 플레이어 투명화, 깜빡깜빡
-	// 4. HP 데미지 깎임	0
-	// 5. 카메라 흔들림 1초	0
-	// HP가 30% 정도 남으면 배경 벌겋게 깜빡깜빡거림
-
 	Vector3 cameraPos;
 
 	private void Start()

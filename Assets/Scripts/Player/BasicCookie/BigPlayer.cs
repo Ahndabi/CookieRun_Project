@@ -5,12 +5,12 @@ using UnityEngine.Events;
 
 public class BigPlayer : PlayerBase, IBiggable
 {
-    TakeDamage takeDamage;
-    bool isBig = false;
+    PlayerTakeDamage takeDamage;
+    protected bool isBig = false;
     
     void IBiggable.NoneDamage()
     {
-        takeDamage = GetComponent<TakeDamage>();
+        takeDamage = GetComponent<PlayerTakeDamage>();
         isBig = true;
         Destroy(takeDamage);
         StartCoroutine(OriginalSizeRoutine());
@@ -28,7 +28,7 @@ public class BigPlayer : PlayerBase, IBiggable
     {
         yield return new WaitForSeconds(4f);
 
-        gameObject.AddComponent<TakeDamage>();      // 다시 TakeDamage 스크립트 추가
+        gameObject.AddComponent<PlayerTakeDamage>();      // 다시 TakeDamage 스크립트 추가
     }
 
 

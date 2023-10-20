@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class LobbySceneUI : SceneUI
 {
-	GameObject zombieCookie;
-	GameObject braveCookie;
-
 	private void Awake()
 	{
 		base.Awake();
