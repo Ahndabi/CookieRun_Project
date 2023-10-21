@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrollSpeed: 0
+  isMagnetRangeTrigger: 0
+  pet: {fileID: 0}
+  sliverCointData: {fileID: 11400000, guid: 159fb9c0870af1f4c825d9959ec9d8a8, type: 2}
 --- !u!58 &-3209576670734169115
 CircleCollider2D:
   m_ObjectHideFlags: 0

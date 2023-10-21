@@ -3,7 +3,9 @@ guid: ed9578cc68c57c44fb2438d9c1f8cd1e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - pet: {instanceID: 0}
+  - sliverCointData: {fileID: 11400000, guid: 159fb9c0870af1f4c825d9959ec9d8a8, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

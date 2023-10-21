@@ -48,7 +48,6 @@ public class DataManager : MonoBehaviour
 
 	public void ChangeHp()
 	{
-		// TODO : 나중에 5로 변경해주기. 지금은 디버깅
 		hp -= Time.deltaTime * 5;
 	}
 

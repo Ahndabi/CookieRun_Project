@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61af7ab06eb3454e9230080e56893b8, type: 3}
+  m_Name: GoldCoin
+  m_EditorClassIdentifier: 
+  itemName: GoldCoin
+  score: 10
+  audio: {fileID: 8300000, guid: f4c56c62bab09a84d8aa418cdd8fa778, type: 3}

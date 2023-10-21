@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class GoldCoin : Item
 {
+    [SerializeField] ItemData goldCointData;
+
 	private void Awake()
 	{
 		getSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GetGoldJelly");
-        items.Add(gameObject, 10);  // items 딕셔너리에 추가
     }
+
     public override void ContactWithPlayer()
 	{
 		gameObject.SetActive(false);
-		GameManager.Data.AddCoinCount(items[gameObject]);  // 골드코인 먹으면 점수 5씩 증가
+        GameManager.Data.AddCoinCount(goldCointData.score);  // 골드코인 먹으면 점수 5씩 증가
 	}
 
     public override void ContactWithPet()
     {
         gameObject.SetActive(false);
-        GameManager.Data.AddJellyCount(items[gameObject]);  // 곰돌이 젤리 먹으면 점수 22씩 증가
+        GameManager.Data.AddCoinCount(goldCointData.score);  // 골드코인 먹으면 점수 5씩 증가
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -26,13 +28,13 @@ public class GoldCoin : Item
 		if (col.gameObject.tag == "Player")
 		{
 			ContactWithPlayer();
-			SoundManager.instance.SFXPlay("SoundEff_GetGoldJelly", getSound);
-		}
+            SoundManager.instance.SFXPlay("GoldCointSound", goldCointData.audio);
+        }
 
         if (col.gameObject.layer == 10)
         {
             ContactWithPet(); 
-            SoundManager.instance.SFXPlay("SoundEff_GetGoldJelly", getSound);
+            SoundManager.instance.SFXPlay("GoldCointSound", goldCointData.audio);
         }
     }
 }

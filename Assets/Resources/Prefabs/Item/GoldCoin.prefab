@@ -115,3 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrollSpeed: 0
+  isMagnetRangeTrigger: 0
+  pet: {fileID: 0}
+  goldCointData: {fileID: 11400000, guid: f85bd75c55e7ccd42a3f521ff3c8777a, type: 2}

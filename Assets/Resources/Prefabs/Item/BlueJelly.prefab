@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8839362086381790685}
   - component: {fileID: 8839362086381790682}
   - component: {fileID: 1330903625772646686}
-  - component: {fileID: 8967852172362513395}
   - component: {fileID: 3806573351832459575}
+  - component: {fileID: 3213533662886687279}
   m_Layer: 0
   m_Name: BlueJelly
   m_TagString: Item
@@ -103,19 +103,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2.125, y: 2.8125}
   m_Direction: 0
---- !u!114 &8967852172362513395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8839362086381790683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d1bb6fd187bbc248bbfc31a0b221e24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScrollSpeed: 0
 --- !u!50 &3806573351832459575
 Rigidbody2D:
   serializedVersion: 4
@@ -137,3 +124,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3213533662886687279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8839362086381790683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1bb6fd187bbc248bbfc31a0b221e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollSpeed: 0
+  isMagnetRangeTrigger: 0
+  pet: {fileID: 0}
+  blueJulleyData: {fileID: 11400000, guid: ee6e254a88022634394484568609f0ae, type: 2}

@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+using static Unity.VisualScripting.Member;
 
 public class SoundManager : MonoBehaviour
 {
 	public static SoundManager instance;
+	GameObject audioObject;
+	AudioSource source;
 
 	private void Awake()
 	{
+		audioObject = new GameObject("GetItemSound");
+		source = audioObject.AddComponent<AudioSource>();
+
 		if (instance == null)
 		{
 			instance = this;
@@ -28,7 +35,13 @@ public class SoundManager : MonoBehaviour
 		Destroy(go, clip.length);
 	}
 
-	public void DestroySound(string sfxName, AudioClip clip)
+    public void SFXPlaye_My(AudioClip clip)
+    {
+        source.clip = clip;
+        source.Play();
+    }
+
+    public void DestroySound(string sfxName, AudioClip clip)
 	{
 	}
 }

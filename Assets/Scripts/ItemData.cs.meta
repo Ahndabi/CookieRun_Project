@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 7d1bb6fd187bbc248bbfc31a0b221e24
+guid: d61af7ab06eb3454e9230080e56893b8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - pet: {instanceID: 0}
-  - blueJulleyData: {fileID: 11400000, guid: ee6e254a88022634394484568609f0ae, type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
