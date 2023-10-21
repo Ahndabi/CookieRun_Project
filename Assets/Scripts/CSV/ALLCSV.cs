@@ -163,39 +163,39 @@ public class ALLCSV : MonoBehaviour
 
         if (number == 0 && float.Parse(values[0]) != 0)      // values의 값이 0이 아니라면 생성
         {
-            Instantiate(JumpOb, new Vector3(13, float.Parse(values[0]), 0), Quaternion.identity);
+            GameManager.Pool.Get<GameObject>(JumpOb, new Vector3(13, float.Parse(values[0]), 0), Quaternion.identity);
         }
         if (number == 1 && float.Parse(values[1]) != 0)
         {
-            Instantiate(SlideOb, new Vector3(13, float.Parse(values[1]), 0), Quaternion.identity);
+            GameManager.Pool.Get<GameObject>(SlideOb, new Vector3(13, float.Parse(values[1]), 0), Quaternion.identity);
         }
         if (number == 2 && float.Parse(values[2]) != 0)
         {
-            Instantiate(Blue, new Vector3(13, float.Parse(values[2]), 0), Quaternion.identity);
+            GameManager.Pool.Get<GameObject>(Blue, new Vector3(13, float.Parse(values[2]), 0), Quaternion.identity);
         }
         if (number == 3 && float.Parse(values[3]) != 0)
         {
-            Instantiate(Bear, new Vector3(13, float.Parse(values[3]), 0), Quaternion.identity);
+            GameManager.Pool.Get<GameObject>(Bear, new Vector3(13, float.Parse(values[3]), 0), Quaternion.identity);
         }
         if (number == 4 && float.Parse(values[4]) != 0)
         {
-            Instantiate(Sliver, new Vector3(13, float.Parse(values[4]), 0), Quaternion.identity);
+            GameManager.Pool.Get<GameObject>(Sliver, new Vector3(13, float.Parse(values[4]), 0), Quaternion.identity);
         }
         if (number == 5 && float.Parse(values[5]) != 0)
         {
-            Instantiate(Gold, new Vector3(13, float.Parse(values[5]), 0), Quaternion.identity);
+            GameManager.Pool.Get<GameObject>(Gold, new Vector3(13, float.Parse(values[5]), 0), Quaternion.identity);
         }
         if (number == 6 && float.Parse(values[6]) != 0)
         {
-            Instantiate(Bigger, new Vector3(13, float.Parse(values[6]), 0), Quaternion.identity);
+            GameManager.Pool.Get<GameObject>(Bigger, new Vector3(13, float.Parse(values[6]), 0), Quaternion.identity);
         }
         if (number == 7 && float.Parse(values[7]) != 0)
         {
-            Instantiate(HeartLife, new Vector3(13, float.Parse(values[7]), 0), Quaternion.identity);
+            GameManager.Pool.Get<GameObject>(HeartLife, new Vector3(13, float.Parse(values[7]), 0), Quaternion.identity);
         }
         if (number == 8 && float.Parse(values[8]) != 0)
         {
-            Instantiate(Magnet, new Vector3(13, float.Parse(values[8]), 0), Quaternion.identity);
+            GameManager.Pool.Get<GameObject>(Magnet, new Vector3(13, float.Parse(values[8]), 0), Quaternion.identity);
         }
     }
 

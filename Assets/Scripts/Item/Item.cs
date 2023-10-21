@@ -11,6 +11,7 @@ public abstract class Item : MonoBehaviour
 	protected AudioClip getSound;
 	public bool isMagnetRangeTrigger = false;
 	[SerializeField] GameObject pet;
+    float time;
 
     protected Dictionary<GameObject, int> items = new Dictionary<GameObject, int>();  // 아이템들을 점수와 함께 저장할 딕셔너리
 
@@ -39,8 +40,13 @@ public abstract class Item : MonoBehaviour
 	{
         while (true)
         {
+            time += Time.deltaTime;
             gameObject.transform.Translate(Vector2.left * ScrollSpeed * Time.deltaTime);
-            Destroy(gameObject, 5f);
+            // Destroy(gameObject, 5f);
+            if (time > 5f)
+            {
+                GameManager.Pool.Release<GameObject>(gameObject);
+            }
             yield return null;
         }
 	}
