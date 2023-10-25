@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377267725451289027, guid: 7d3491f178e336a409612ac6948e2aa8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d3491f178e336a409612ac6948e2aa8, type: 3}
@@ -782,13 +782,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 389756753190895045, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
+      propertyPath: jumpSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6320414497141834618, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
       propertyPath: m_Name
       value: AllZombieCookie
       objectReference: {fileID: 0}
     - target: {fileID: 6320414497141834618, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6320414497141834619, guid: 0e1141f72717eec4b958c7ca49c10fc4, type: 3}
       propertyPath: m_RootOrder

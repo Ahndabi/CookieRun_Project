@@ -8,7 +8,7 @@ public class PlayerController : PlayerBase
 {
 	// 점프, 슬라이드, 애니메이션 
 
-	[SerializeField] float jumpSpeed;
+	[SerializeField] float jumpSpeed = 20;
 	bool isGrounded = true;
 	bool oneJump = false;       // 1단 점프를 한 번 했는지
 	public bool isJump = false;

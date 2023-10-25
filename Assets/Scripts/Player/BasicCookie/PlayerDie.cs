@@ -32,7 +32,6 @@ public class PlayerDie : PlayerBase
 	{
 		while (true)
         {
-			Debug.Log("CheckDieRoutine");
             if (GameManager.Data.HP <= 0)
             {
                 Die();

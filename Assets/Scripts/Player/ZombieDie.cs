@@ -7,12 +7,12 @@ using UnityEngine.InputSystem;
 public class ZombieDie : PlayerDie
 {
     bool oneDie = false;
-    ZombieTakeDamage takeDamage;
+    PlayerTakeDamage takeDamage;
 
     private void Awake()
     {
         base.Awake();
-        takeDamage = GetComponent<ZombieTakeDamage>();
+        takeDamage = GetComponent<PlayerTakeDamage>();
     }
 
     private void OnDisable()
@@ -53,7 +53,7 @@ public class ZombieDie : PlayerDie
     {
         Destroy(takeDamage);
         yield return new WaitForSeconds(2f);
-        gameObject.AddComponent<ZombieTakeDamage>();
+        gameObject.AddComponent<PlayerTakeDamage>();
         Physics2D.IgnoreLayerCollision(3, 8, false);    // 다시 레이어 체크
     }
 }
