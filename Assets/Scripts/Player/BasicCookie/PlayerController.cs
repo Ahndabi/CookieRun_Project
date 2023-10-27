@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : PlayerBase
+public class PlayerController : MonoBehaviour
 {
 	// 점프, 슬라이드, 애니메이션 
 
@@ -12,14 +12,14 @@ public class PlayerController : PlayerBase
 	bool isGrounded = true;
 	bool oneJump = false;       // 1단 점프를 한 번 했는지
 	public bool isJump = false;
+	PlayerBase playerBase;
 
 	public AudioClip jumpSound;
 	public AudioClip slideSound;
 
-	protected override void Awake()
+	private void Awake()
 	{
-		base.Awake();
-
+		playerBase = GetComponent<PlayerBase>();
 		jumpSound = GameManager.Resource.Load<AudioClip>("Sound/cookie0001_jump");
 		slideSound = GameManager.Resource.Load<AudioClip>("Sound/cookie0001_slide");
 	}
@@ -34,18 +34,18 @@ public class PlayerController : PlayerBase
 		// 2단 점프만 가능하도록 
 		if (GroundCheck())       // 1. 바닥이면 점프가능
 		{
-			anim.SetTrigger("Jump1");
+			playerBase.anim.SetTrigger("Jump1");
 			isJump = true;
 			oneJump = true;      // 1단점프 true
-			rb.velocity = Vector2.up * jumpSpeed;
+            playerBase.rb.velocity = Vector2.up * jumpSpeed;
 			SoundManager.instance.SFXPlay("cookie0001_jump", jumpSound);
 		}
 		else if (!GroundCheck() && oneJump)     // 1. 공중이면서	2. 1단점프를 한 경우
 		{
-			anim.SetTrigger("Jump2");
+            playerBase.anim.SetTrigger("Jump2");
 			isJump = true;
 			oneJump = false;     // 1단 점프는 이미 했음
-			rb.velocity = Vector2.up * jumpSpeed;       // 한 번 더 점프 가능
+            playerBase.rb.velocity = Vector2.up * jumpSpeed;       // 한 번 더 점프 가능
 			SoundManager.instance.SFXPlay("cookie0001_jump", jumpSound);
 		}
 		else
@@ -65,7 +65,7 @@ public class PlayerController : PlayerBase
 
 		RaycastHit2D hit;
 
-		if (anim.GetCurrentAnimatorStateInfo(1).IsName("Bigger"))
+		if (playerBase.anim.GetCurrentAnimatorStateInfo(1).IsName("Bigger"))
 		{
             hit = Physics2D.Raycast(transform.position, Vector2.down, 2.8f, LayerMask.GetMask("Ground"));
         }
@@ -95,11 +95,11 @@ public class PlayerController : PlayerBase
 
 	protected virtual void Slide()
 	{
-		anim.SetTrigger("Slide");
+        playerBase.anim.SetTrigger("Slide");
 	}
 
     protected virtual void Move()
 	{
-		anim.SetTrigger("Move");
+        playerBase.anim.SetTrigger("Move");
 	}
 }

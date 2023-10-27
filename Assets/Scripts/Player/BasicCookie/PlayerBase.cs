@@ -5,9 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerBase : MonoBehaviour
 {
-    [SerializeField] protected Animator anim;
-    protected Rigidbody2D rb;
-    protected PlayerInput inputSystem;
+    [SerializeField] public Animator anim;
+    public Rigidbody2D rb;
+    public PlayerInput inputSystem;
 
     protected virtual void Awake()
     {

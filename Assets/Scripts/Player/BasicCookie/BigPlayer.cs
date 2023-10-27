@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BigPlayer : PlayerBase, IBiggable
+public class BigPlayer : MonoBehaviour, IBiggable
 {
     PlayerTakeDamage takeDamage;
     protected bool isBig = false;
-    
+    PlayerBase playerBase;
+
+    private void Awake()
+    {
+        playerBase = GetComponent<PlayerBase>();
+    }
+
     void IBiggable.NoneDamage()
     {
         takeDamage = GetComponent<PlayerTakeDamage>();
@@ -20,7 +26,7 @@ public class BigPlayer : PlayerBase, IBiggable
     IEnumerator OriginalSizeRoutine()
     {
         yield return new WaitForSeconds(3f);
-        anim.SetTrigger("Smaller");     // 원래 상태로 돌아감 (작아짐)
+        playerBase.anim.SetTrigger("Smaller");     // 원래 상태로 돌아감 (작아짐)
         isBig = false;
     }
 
@@ -39,4 +45,5 @@ public class BigPlayer : PlayerBase, IBiggable
             Destroy(col.gameObject);        // 부딪힌 장애물은 Destroy
         }
     }
+
 }

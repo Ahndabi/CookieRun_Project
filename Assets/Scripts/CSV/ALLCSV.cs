@@ -41,12 +41,12 @@ public class ALLCSV : MonoBehaviour
 
 	public void CSVReader()
 	{
-        // TextAsset csvFile = Resources.Load("ALLCSV") as TextAsset;
-         TextAsset csvFile = Resources.Load("ALLCSV_Time") as TextAsset;
+         TextAsset csvFile = Resources.Load("ALLCSV") as TextAsset;
+        // TextAsset csvFile = Resources.Load("ALLCSV_Time") as TextAsset;
         string csvText = csvFile.text;
 
 		if (csvFile != null)
-		{
+		{   
 			lines = csvText.Split('\n');        // lines[0] = "ÇÁ¸®ÆÕ, ÇÁ¸®ÆÕ, ÇÁ¸®ÆÕ"
 			StartCoroutine(CSVRoutine());		// lines[1] = "0, -3, -3, ,,,,,,,"
 		}
@@ -108,11 +108,13 @@ public class ALLCSV : MonoBehaviour
         }
         if (number == 2 && float.Parse(values[2]) != 0)
         {
-            GameManager.Pool.Get<GameObject>(Blue, new Vector3(13, float.Parse(values[2]), 0), Quaternion.identity);
+            // <GameObject>(Blue, new Vector3(13, float.Parse(values[2]), 0), Quaternion.identity);
+            Instantiate(Blue, new Vector3(13, float.Parse(values[2]), 0), Quaternion.identity);
         }
         if (number == 3 && float.Parse(values[3]) != 0)
         {
-            GameManager.Pool.Get<GameObject>(Bear, new Vector3(13, float.Parse(values[3]), 0), Quaternion.identity);
+            // GameManager.Pool.Get<GameObject>(Bear, new Vector3(13, float.Parse(values[3]), 0), Quaternion.identity);
+            Instantiate(Bear, new Vector3(13, float.Parse(values[3]), 0), Quaternion.identity);
         }
         if (number == 4 && float.Parse(values[4]) != 0)
         {
@@ -120,7 +122,8 @@ public class ALLCSV : MonoBehaviour
         }
         if (number == 5 && float.Parse(values[5]) != 0)
         {
-            GameManager.Pool.Get<GameObject>(Gold, new Vector3(13, float.Parse(values[5]), 0), Quaternion.identity);
+            // GameManager.Pool.Get<GameObject>(Gold, new Vector3(13, float.Parse(values[5]), 0), Quaternion.identity);
+            Instantiate(Gold, new Vector3(13, float.Parse(values[5]), 0), Quaternion.identity);
         }
         if (number == 6 && float.Parse(values[6]) != 0)
         {

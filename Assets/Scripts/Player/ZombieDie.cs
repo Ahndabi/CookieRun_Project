@@ -8,18 +8,19 @@ public class ZombieDie : PlayerDie
 {
     bool oneDie = false;
     PlayerTakeDamage takeDamage;
-
+    
     private void Awake()
     {
         base.Awake();
+        
         takeDamage = GetComponent<PlayerTakeDamage>();
     }
-
+    
     private void OnDisable()
     {
         StopCoroutine(CheckDieRoutine());
     }
-
+    
     protected override void Die()
     {
         base.Die();
@@ -33,10 +34,10 @@ public class ZombieDie : PlayerDie
             oneDie = true;
             Player.SetActive(true);
             DiePlayer.SetActive(false);
-            anim.SetTrigger("IsDie");
+            playerBase.anim.SetTrigger("IsDie");
         }
     }
-
+    
     public void ZombieSpawn()      // Spawn 애니메이션이 끝날 때 붙여줄 이벤트
     {
         StartCoroutine(NoTakeDamageRoutine());
@@ -45,8 +46,8 @@ public class ZombieDie : PlayerDie
         Time.timeScale = 1.0f;
 
         StopCoroutine(ShowGameResultUI());
-        inputSystem.enabled = true;
-        anim.SetTrigger("Move");
+        playerBase.inputSystem.enabled = true;
+        playerBase.anim.SetTrigger("Move");
     }
 
     IEnumerator NoTakeDamageRoutine()   // 데미지를 2초 동안 받지 않는 함수

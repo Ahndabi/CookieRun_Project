@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerDie : PlayerBase
+public class PlayerDie : MonoBehaviour
 {
 	// HP curHP값이 0이면 Die
 	// 죽으면 애니메이션
@@ -13,12 +14,12 @@ public class PlayerDie : PlayerBase
 	public GameObject DiePlayer;	// 드래그로 씬에 있는 DiePlayer를 넣어줌
 	public GameObject Player;
 	Vector3 cameraPos;
+	protected PlayerBase playerBase;
 
-	protected override void Awake()
+	protected virtual void Awake()
 	{
-		base.Awake();
-
-		Player = GameObject.FindWithTag("Player");
+        playerBase = GetComponent<PlayerBase>();
+        Player = GameObject.FindWithTag("Player");
 	}
 
 	private void Start()
@@ -51,7 +52,8 @@ public class PlayerDie : PlayerBase
 		Camera.main.transform.position = cameraPos;
 
 		// inputsystem 비활성화. 점프 안되게
-		inputSystem.enabled = false;
+		playerBase.anim.enabled = true;
+		playerBase.inputSystem.enabled = false;
 
         // 현재 Player는 비활성화, DiePlayer 활성화
         DiePlayer.SetActive(true);

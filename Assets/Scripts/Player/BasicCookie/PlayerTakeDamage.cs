@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerTakeDamage : PlayerBase
+public class PlayerTakeDamage : MonoBehaviour
 {
 	Vector3 cameraPos;
+	PlayerBase playerBase;
 
-	private void Start()
+    private void Awake()
+    {
+        playerBase = GetComponent<PlayerBase>();
+    }
+
+    private void Start()
 	{
 		cameraPos = Camera.main.transform.position;     // 카메라 위치는 시작할 때의 카메라 위치
 	}
@@ -19,7 +25,7 @@ public class PlayerTakeDamage : PlayerBase
 		{
 			GameManager.Data.DecreaseHp(10);
 
-			anim.SetTrigger("TakeDamage");
+            playerBase.anim.SetTrigger("TakeDamage");
 
 			StartCoroutine(CameraShakeRoutine());			// 카메라 흔드는 함수 호출
 			StartCoroutine(IgnoreLayerRoutine());			// 2초 동안 IgnoreLayer 함수를 반복해서 계속 호출
