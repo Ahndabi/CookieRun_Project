@@ -15,7 +15,7 @@ public class SettingPopUpUI : PopUpUI
 
 	void ChangedLobbyScene()
 	{
-		SceneManager.LoadScene("LobbyScene");
+		SceneManager.LoadScene(0);
 	}
 
 	public void OpenPausePopUpUI()

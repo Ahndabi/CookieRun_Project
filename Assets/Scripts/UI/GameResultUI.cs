@@ -12,13 +12,9 @@ public class GameResultUI : PopUpUI
 	// CoinScoreText 는 현재 CoinCount가 됨.
 	// OkButton을 누르면 로비 씬으로 감
 
-	GameObject Player;
-
-	private void Awake()
+	protected override void Awake()
 	{
 		base.Awake();
-
-		Player = GameManager.Resource.Load<GameObject>("Prefabs/Player");
 
 		texts["JellyScoreText"].text = GameManager.Data.JellyCount.ToString();
 		texts["CoinScoreText"].text = GameManager.Data.CoinCount.ToString();
@@ -27,7 +23,6 @@ public class GameResultUI : PopUpUI
 	
 	void ChangedLobbyScene()
 	{
-		SceneManager.LoadScene("LobbyScene");
-		//Destroy(Player);
+		SceneManager.LoadScene(0);
 	}
 }

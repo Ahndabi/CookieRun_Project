@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -58,6 +56,12 @@ public class UIManager : MonoBehaviour
 		curHP -= Time.deltaTime * 5;
 	}
 
+	public void ShowResultUI()	// 게임 끝나고 나오는 점수판
+	{
+        Canvas canvas = GameObject.FindWithTag("Canvas").GetComponent<Canvas>();
+        GameObject resultUI = Resources.Load<GameObject>("UI/GameResultUI");
+        Instantiate<GameObject>(resultUI, canvas.transform);
+    }
 
 	public T ShowPopUpUI<T>(T popUpUI) where T : PopUpUI
 	{

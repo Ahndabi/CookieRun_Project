@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BackGround : MonoBehaviour
 {
-	[SerializeField] public float speed;
-	MeshRenderer renderer;
+	[SerializeField] public float speed;	// 배경 스크롤링 속도
+	new MeshRenderer renderer;
 	float x = 0;
 	float y = 0;
 
@@ -16,13 +14,10 @@ public class BackGround : MonoBehaviour
 
 	private void Update()
 	{
-		renderer.material.mainTextureOffset = new Vector2(x, y);
-		x = x + Time.deltaTime * speed;
-
-		/*
-		x += (speed * Time.deltaTime);
-
-		Vector2 offset = new Vector2(x, 0);
-		GetComponent<Renderer>().material.SetTextureOffset("_MainTex", offset);*/  // << 이건 됩니당
+		//if (PlayerBase.isDie == false)
+		//{
+			renderer.material.mainTextureOffset = new Vector2(x, y);
+			x = x + Time.deltaTime * speed;
+		//}
 	}
 }

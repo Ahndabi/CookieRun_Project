@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class ShowGameResultUI : MonoBehaviour
 {
-    void Start()
+    void OnEnable()
     {
-		StartCoroutine(ShowUIRoutine());
+		// StartCoroutine(ShowUIRoutine());
     }
 
 	IEnumerator ShowUIRoutine()
 	{
 		yield return new WaitForSecondsRealtime(2f);
-		GameManager.UI.ShowPopUpUI<PopUpUI>("UI/GameResultUI");
-	}
+		// GameManager.UI.ShowPopUpUI<PopUpUI>("UI/GameResultUI");
+
+        Canvas canvas = GameObject.FindWithTag("Canvas").GetComponent<Canvas>();
+        GameObject resultUI = Resources.Load<GameObject>("UI/GameResultUI");
+        Instantiate<GameObject>(resultUI, canvas.transform);
+    }
 }

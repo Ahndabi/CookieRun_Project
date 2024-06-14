@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Item은 기본젤리, 곰돌이 젤리, 코인이 있다.
@@ -10,8 +8,7 @@ public abstract class Item : MonoBehaviour
 	[SerializeField] float ScrollSpeed;
 	protected AudioClip getSound;
 	public bool isMagnetRangeTrigger = false;
-	[SerializeField] GameObject pet;
-	[SerializeField] Pet petScript;
+	protected Pet pet;
 
 	public abstract void Contact();     // 플레이어랑 닿았을 때 함수
 										// 1. Destroy
@@ -19,18 +16,20 @@ public abstract class Item : MonoBehaviour
 	private void Start()
 	{
 		ScrollSpeed = 10.5f;
-		pet = GameObject.FindGameObjectWithTag("Pet");  // 자석 후 펫의 위치를 받아옴
-		petScript = pet.GetComponent<Pet>();
+		pet = FindObjectOfType<Pet>();
 	}
 
 	private void Update()
 	{
-		Move();
+		//if (PlayerBase.isDie == false)
+		//{
+			Move();
 
-		if (petScript.isMagnet)     // TODO : &&isMagnetRangeTrigger  Magnet 충돌체 안에 trigger되면. 충돌 trigger 안에 bool 자료형 만들자
-		{
-			MagnetItemRole();
-		}
+			if (pet.isMagnet)     // TODO : &&isMagnetRangeTrigger  Magnet 충돌체 안에 trigger되면. 충돌 trigger 안에 bool 자료형 만들자
+			{
+				MagnetItemRole();
+			}
+		//}
 	}
 
 	void Move()

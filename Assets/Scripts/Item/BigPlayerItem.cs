@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class BigPlayerItem : Item
 {
@@ -11,7 +8,7 @@ public class BigPlayerItem : Item
 	private void Awake()
 	{
 		Player = GameObject.FindGameObjectWithTag("Player");
-		anim = Player.GetComponent<Animator>();
+		anim = Player.GetComponentInChildren<Animator>();
 	}
 
 	public override void Contact()	// 플레이어랑 닿았을 때의 함수

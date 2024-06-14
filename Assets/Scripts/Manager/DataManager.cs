@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,6 +12,9 @@ public class DataManager : MonoBehaviour
 	public UnityAction<int> OnJellyChanged;
 	public UnityAction<int> OnCointChanged;
 
+	public Players currentPlayer;
+	public GameObject player;	// 플레이어 프리팹. 오브젝트
+
 	public void AddJellyCount(int count)
 	{
 		JellyCount += count;        // 데이터변조 때문에 =대입이 아니라 더해주는 방식으로!!
@@ -25,4 +26,16 @@ public class DataManager : MonoBehaviour
 		CoinCount += count;        // 데이터변조 때문에 =대입이 아니라 더해주는 방식으로!!
 		OnCointChanged?.Invoke(CoinCount);
 	}
+
+	public void DecidePlayer()
+	{
+        player = Resources.Load<GameObject>($"Prefabs/Players/{currentPlayer.ToString()}");
+		// Instantiate(player, 게임씬에 있는 프리팹 부모 플레이어);
+	}
+}
+
+public enum Players
+{
+	BasicPlayer = 0,
+	ZombiePlayer,
 }
