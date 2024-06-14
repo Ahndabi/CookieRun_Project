@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Item
   - Pet
+  - Canvas
   layers:
   - Default
   - TransparentFX
