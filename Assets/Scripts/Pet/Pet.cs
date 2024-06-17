@@ -1,9 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public abstract class Pet : MonoBehaviour
 {
@@ -30,8 +26,8 @@ public abstract class Pet : MonoBehaviour
 	{
 		if (!isMagnet)		// isMagnet이 false일 때, 즉 자석기능 없는 상황일 때는 항상 플레이어 왼쪽에서 졸졸쫒아다니기
 		{
-			gameObject.transform.position = Player.transform.position + new Vector3(-3.5f, 1.1f, 0);
-			transform.position = Vector3.Lerp(transform.position, Player.transform.position, speed);    // 부드럽게 움직이기 위해 Lerp 사용
+			gameObject.transform.position = Player.transform.GetChild(0).position + new Vector3(-3.5f, 1.1f, 0);
+			transform.position = Vector3.Lerp(transform.position, Player.transform.GetChild(0).position, speed);    // 부드럽게 움직이기 위해 Lerp 사용
 		}
 	}
 

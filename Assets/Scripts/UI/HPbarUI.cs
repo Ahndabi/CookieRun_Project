@@ -14,12 +14,16 @@ public class HPbarUI : MonoBehaviour
 
 	private void Update()
 	{
-		DecreaseHPBar();
+		if (PlayerBase.isDie == false)
+		{
+			DecreaseHPBar();
+		}
 	}
 
 	void DecreaseHPBar()
 	{
 		GameManager.UI.ChangedHP();
 		Hpbar.value = GameManager.UI.curHP;
+
 	}
 }

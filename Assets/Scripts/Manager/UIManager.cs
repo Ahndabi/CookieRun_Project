@@ -54,6 +54,11 @@ public class UIManager : MonoBehaviour
 	public void ChangedHP()
 	{
 		curHP -= Time.deltaTime * 5;
+
+		if (curHP <= 0)
+		{
+			GameObject.FindWithTag("Player").GetComponentInChildren<PlayerDie>().Die();
+		}
 	}
 
 	public void ShowResultUI()	// 게임 끝나고 나오는 점수판

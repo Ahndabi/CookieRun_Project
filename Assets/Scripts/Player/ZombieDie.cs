@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieDie : PlayerDie
@@ -16,7 +15,6 @@ public class ZombieDie : PlayerDie
         {
             StopCoroutine(resultUICor);
             StartCoroutine(DontTakeDamageRoutine());
-            // SpawnZombie();
             StartCoroutine(SpawnZombieRoutine());
             oneDie = true;
         }
@@ -28,16 +26,7 @@ public class ZombieDie : PlayerDie
         PlayerBase.isDie = false;
 
         Time.timeScale = 1f;
-        GameManager.UI.curHP = GameManager.UI.maxHP;
-        playerBase.anim.Play("Move");
-    }
-
-    void SpawnZombie()
-    {
-        PlayerBase.isDie = false;
-
-        Time.timeScale = 1f;
-        GameManager.UI.curHP = GameManager.UI.maxHP;
+        GameManager.UI.curHP = GameManager.UI.maxHP * 0.5f;
         playerBase.anim.Play("Move");
     }
 

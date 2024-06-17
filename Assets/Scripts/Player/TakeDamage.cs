@@ -14,19 +14,17 @@ public class TakeDamage : MonoBehaviour
     [SerializeField] PlayerBase playerBase;
 	Vector3 cameraPos;
 
-    //[SerializeField] GameObject DiePlayer;  // 드래그로 씬에 있는 DiePlayer를 넣어줌
-    //[SerializeField] GameObject livePlayer;
-
 	private void Start()
 	{
 		cameraPos = Camera.main.transform.position;     // 카메라 위치는 시작할 때의 카메라 위치
 		playerBase.isUnDamage = false;
-	}
+        Physics2D.IgnoreLayerCollision(3, 8, false);    // 다시 레이어 체크
+    }
 
-	private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
 	{
-		// 장애물을 통과하면 다치는 애니메이션 실행
-		if (col.gameObject.tag == "Obstacle" && playerBase.isUnDamage == false)
+        // 장애물을 통과하면 다치는 애니메이션 실행
+        if (col.gameObject.tag == "Obstacle" && playerBase.isUnDamage == false)
 		{
 			if (PlayerBase.isDie == false)
 			{

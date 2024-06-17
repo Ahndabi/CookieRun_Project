@@ -14,6 +14,7 @@ public class GameScene : BaseScene
         Time.timeScale = 1f;
         GameManager.UI.curHP = GameManager.UI.maxHP;
         GameManager.Data.DecidePlayer();
+        GameManager.Data.InitItemCount();
         CreatePlayer();
     }
 

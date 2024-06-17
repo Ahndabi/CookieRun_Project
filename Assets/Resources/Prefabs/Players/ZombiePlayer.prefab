@@ -275,7 +275,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 82ecc793e9696e34d94159d9d9986bfd, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
   anim: {fileID: 6064608845406628993}
   rb: {fileID: 227874436696356119}
   inputSystem: {fileID: 5589552432508441880}
-  isUnDamage: 0
+  isUnDamage: 1
 --- !u!61 &9161975405648406504
 BoxCollider2D:
   m_ObjectHideFlags: 0

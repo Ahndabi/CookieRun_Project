@@ -15,6 +15,12 @@ public class DataManager : MonoBehaviour
 	public Players currentPlayer;
 	public GameObject player;	// 플레이어 프리팹. 오브젝트
 
+	public void InitItemCount()
+	{
+		JellyCount = 0;
+		CoinCount = 0;
+    }
+
 	public void AddJellyCount(int count)
 	{
 		JellyCount += count;        // 데이터변조 때문에 =대입이 아니라 더해주는 방식으로!!
