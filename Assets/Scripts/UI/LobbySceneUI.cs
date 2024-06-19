@@ -3,11 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class LobbySceneUI : SceneUI
 {
+    [SerializeField] GameObject selectPlayerUI;
+
     protected override void Awake()
     {
         base.Awake();
 
-        // buttons["StartButton"].onClick.AddListener(() => { GameScene(); });
         buttons["StartButton"].onClick.AddListener(() => { LoadGameScene(); });
         buttons["SelectButton"].onClick.AddListener( () => { LoadSelectPlayerScene(); });
     }
@@ -15,13 +16,12 @@ public class LobbySceneUI : SceneUI
     // 게임 씬으로 넘어가는 함수
     void LoadGameScene()
 	{
-        SceneManager.LoadScene(2);
-		//GameManager.Scene.StartGameScene();
+        SceneManager.LoadScene(1);
 	}
 
-    // 캐릭터 선택 씬으로 넘어가는 함수
+    // 캐릭터 팝업 띄우는 함수
     void LoadSelectPlayerScene()
     {
-        SceneManager.LoadScene(1);
+        selectPlayerUI.SetActive(true);
     }
 }
