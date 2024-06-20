@@ -9,17 +9,19 @@ public class SettingPopUpUI : PopUpUI
 	{
 		base.Awake();
 
-		buttons["ExitButton"].onClick.AddListener(() => { ChangedLobbyScene(); });
-		buttons["ContinueButton"].onClick.AddListener(() => { GameManager.UI.ClosePopUpUI(); });
+		buttons["ExitButton"].onClick.AddListener(() => { OnClickExit(); });
+		buttons["ContinueButton"].onClick.AddListener(() => { OnClickContinue(); });
 	}
 
-	void ChangedLobbyScene()
+	void OnClickExit()
 	{
+		Time.timeScale = 1;
 		SceneManager.LoadScene(0);
 	}
 
-	public void OpenPausePopUpUI()
+	public void OnClickContinue()
 	{
-		GameManager.UI.ShowPopUpUI<PopUpUI>("UI/PausePopUpUI");
-	}
+        Time.timeScale = 1;
+		Destroy(gameObject);
+    }
 }

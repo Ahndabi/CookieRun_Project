@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PausePopUpUI : SceneUI		// 일시정지 UI는 Scene에 있는 거라서 SceneUI 상속받음
 {
-	PlayerController playerController;
-
 	protected override void Awake()
 	{
 		base.Awake();
@@ -21,5 +16,7 @@ public class PausePopUpUI : SceneUI		// 일시정지 UI는 Scene에 있는 거라서 SceneU
         Canvas canvas = GameObject.FindWithTag("Canvas").GetComponent<Canvas>();
         GameObject pauseUI = Resources.Load<GameObject>("UI/PausePopUpUI");
         Instantiate<GameObject>(pauseUI, canvas.transform);
+
+		Time.timeScale = 0;
     }
 }
