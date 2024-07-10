@@ -97,7 +97,7 @@ public class LobbySceneUI : SceneUI
         setNickNameUI.SetActive(false);
         menuUI.SetActive(true);
         GameManager.Data.SaveNickName(nickName_Text.text);
-        GameManager.Data.SaveData(nickName_Text.text, 0, 0, 0);
+        GameManager.Data.SaveData(email_Text.text, nickName_Text.text, 0, 0, 0);
     }
     
     IEnumerator InputPopUpUIRoutine()

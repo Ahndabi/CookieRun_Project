@@ -45,10 +45,10 @@ public class AuthManager: MonoBehaviour
         }
     }
 
-    public void SignUp(string email, string password)    // 회원가입
+    public async void SignUp(string email, string password)    // 회원가입
     {
-        // 밑의 비동기 처리 함수 안에서는 코루틴 호출이 안 됨..
-        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => 
+        bool isSignedUp = false;    // 회원가입을 했는지
+        await auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => 
         { 
             if (task.IsCanceled)    // 회원가입 중간에 취소가 되었을 경우
             {
@@ -61,14 +61,19 @@ public class AuthManager: MonoBehaviour
                 Debug.Log("회원가입 실패");
                 return;
             }
-
             // FirebaseUser newUser = task.Result;
 
+            isSignedUp = true;
             AuthResult newUser = task.Result;   // 위의 코드가 오류나서 일단 이렇게 대체
             GameManager.Data.SetUserID(user.UserId);
 
             Debug.Log("회원가입 완료");
         });
+        if (isSignedUp == true)
+        {
+            lobbySceneUI.TurnOnSetNickNameUI();
+        }
+
     }
 
     public async void SignIn(string email, string password)    // 로그인

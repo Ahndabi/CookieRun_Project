@@ -12,6 +12,9 @@ using UnityEngine.Events;
 [Serializable]
 public class dataToSave     // 로그인한 유저가 DB에 저장할 데이터
 {
+    [SerializeField] string email;       // 이메일
+    public string UpdateEmail { get { return email; } set { email = value; } }
+
     [SerializeField] string nickname;     // 닉네임
     public string UpdateNickName { get { return nickname; } set { nickname = value; } }
 
@@ -85,11 +88,12 @@ public class DataManager : MonoBehaviour
         if (CompareHighScore(JellyCount) == true)
            dts.UpdateBestScore = JellyCount;
 
-        SaveData(dts.UpdateNickName, CoinCount, JellyCount, dts.UpdateBestScore);
+        SaveData(dts.UpdateEmail, dts.UpdateNickName, CoinCount, JellyCount, dts.UpdateBestScore);
     }
 
-    public void SaveData(string _nickname, int _coin, int _jelly, int _bestScore)
+    public void SaveData(string _email, string _nickname, int _coin, int _jelly, int _bestScore)
     {
+        dts.UpdateEmail = _email;
         dts.UpdateNickName = _nickname;
         dts.UpdateTotalCoins = _coin;
         dts.UpdateTotalJellies = _jelly;
@@ -140,7 +144,7 @@ public class DataManager : MonoBehaviour
         else return true;
     }
 
-    // 로그인 후 닉네임 설정할 필요가 있는 유저인지(데이터가 존재하는 유저인지) 확인하는 함수
+    // 로그인 후 닉네임 설정할 필요가 있는 유저인지(데이터가 존재하는 유저인지) 확인하는 함수 -> 회원가입만 하고 닉네임 설정 안 했을 경우
     public void CheckToHaveData(string _userID, LobbySceneUI _lobbyUI)
     {
         StartCoroutine(CheckToHaveDataRoutine(_userID, _lobbyUI));
@@ -156,7 +160,7 @@ public class DataManager : MonoBehaviour
 
         DataSnapshot snapshot = serverData.Result;
 
-        if (snapshot.Exists == false)   // 이전의 데이터가 없었을 경우(닉네임 세팅 해야함)
+        if (snapshot.Exists == false)   // 이전의 데이터가 없었을 경우(닉네임 세팅 해야함) -> 회원가입만 하고 닉네임 설정 안 했을 경우
             _lobbyUI.TurnOnSetNickNameUI();
         if (snapshot.Exists == true)
             _lobbyUI.TurnOnMenuUI();
@@ -180,8 +184,6 @@ public class DataManager : MonoBehaviour
         // 데이터가 존재하면 닉네임이 있는 거고 데이터가 존재하지 않다면 닉네임이 없다는 뜻
         if (snapshot.Exists == false) { _lobbyUI.SetNickName(); }
         else { _lobbyUI.StartDuplicatedUIRoutine(); }
-
-        // callback(_isExistNickName);
     }
 }
 
