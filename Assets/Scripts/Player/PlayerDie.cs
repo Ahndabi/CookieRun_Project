@@ -11,12 +11,6 @@ public class PlayerDie : MonoBehaviour
     [SerializeField] protected PlayerBase playerBase;       // diePlayer¿« playerBase∏¶ ≥÷æÓ¡‹
 	protected IEnumerator resultUICor = null;
 	Vector3 cameraPos;
-	// AudioClip dieSound;
-
-	private void Awake()
-	{
-		//dieSound = GameManager.Resource.Load<AudioClip>("Sound/SoundEff_GameEnd");
-	}
 
 	private void Start()
 	{
@@ -39,9 +33,12 @@ public class PlayerDie : MonoBehaviour
 		playerBase.isUnDamage = true;
 		PlayerBase.isDie = true;
 
-		resultUICor = ShowGameResultUI();
+		GameManager.Data.UpdateData();
+
+        resultUICor = ShowGameResultUI();
 		StartCoroutine(resultUICor);
     }
+
 
     protected IEnumerator ShowGameResultUI()
 	{

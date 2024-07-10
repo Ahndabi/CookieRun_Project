@@ -1,0 +1,32 @@
+{
+  "project_info": {
+    "project_number": "380975028707",
+    "firebase_url": "https://cookierundb-default-rtdb.firebaseio.com",
+    "project_id": "cookierundb",
+    "storage_bucket": "cookierundb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380975028707:ios:4d9066fe25cf1a88e5a8d6",
+        "android_client_info": {
+          "package_name": "com.firebase.cookie"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH3sZXLWN9HTvVnqzXl0mjCxddgerxp8U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
