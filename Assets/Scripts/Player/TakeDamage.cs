@@ -12,64 +12,92 @@ public class TakeDamage : MonoBehaviour
     // HP가 30% 정도 남으면 배경 벌겋게 깜빡깜빡거림
 
     [SerializeField] PlayerBase playerBase;
-	Vector3 cameraPos;
+    Vector3 cameraPos;
 
-	private void Start()
-	{
-		cameraPos = Camera.main.transform.position;     // 카메라 위치는 시작할 때의 카메라 위치
-		playerBase.isUnDamage = false;
-        Physics2D.IgnoreLayerCollision(3, 8, false);    // 다시 레이어 체크
+    private void Start()
+    {
+        cameraPos = Camera.main.transform.position;     // 카메라 위치는 시작할 때의 카메라 위치
+        playerBase.isUnDamage = false;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
-	{
+    {
         // 장애물을 통과하면 다치는 애니메이션 실행
         if (col.gameObject.tag == "Obstacle" && playerBase.isUnDamage == false)
-		{
-			if (PlayerBase.isDie == false)
-			{
+        {
+            if (PlayerBase.isDie == false)
+            {
                 StartCoroutine(CameraShakeRoutine());           // 카메라 흔드는 함수 호출
-                StartCoroutine(IgnoreLayerRoutine());           // 2초 동안 IgnoreLayer 함수를 반복해서 계속 호출
-                
-				DecreaseHP();   // HP 감소
+                StartCoroutine(DontTakeDamageRoutine());           // 2초 동안 IgnoreLayer 함수를 반복해서 계속 호출
 
-				playerBase.anim.SetTrigger("TakeDamage");
+                DecreaseHP();   // HP 감소
 
-			}
-		}
-	}
+                playerBase.anim.SetTrigger("TakeDamage");
 
-	private void OnDisable()
-	{
-		StopAllCoroutines();
-	}
+            }
+        }
+    }
 
-	IEnumerator IgnoreLayerRoutine()		// *** 여기서 레이어 무시한 뒤 1.5초 안 지나고 BigItem먹으면 레이어 무시된 채로 이 스크립트 삭제돼서 Destroy안됨 ㅜㅜ
-	{
-		Physics2D.IgnoreLayerCollision(3, 8, true);           // 장애물 콜라이더(레이어) 무시하기
-		playerBase.isUnDamage = true;
-		yield return new WaitForSeconds(1.5f);
-		Physics2D.IgnoreLayerCollision(3, 8, false);    // 다시 레이어 체크
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
+    IEnumerator DontTakeDamageRoutine()
+    {
+        playerBase.isUnDamage = true;
+
+        float time = 0;
+        bool isUp = false;  // 투명도 올리는 bool
+        float colorA = 1;
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+
+        while (time < 1.5f)
+        {
+            time += Time.deltaTime;
+
+            if (isUp == false)
+            {
+                colorA -= 0.02f;
+                sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, colorA);
+                if (colorA < 0.1f)
+                {
+                    isUp = true;
+                }
+            }
+            else if (isUp == true)
+            {
+                colorA += 0.02f;
+                sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, colorA);
+
+                if (colorA > 0.8f)
+                {
+                    isUp = false;
+                }
+            }
+            yield return null;
+        }
+
+        sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1);
         playerBase.isUnDamage = false;
     }
 
     IEnumerator CameraShakeRoutine()
-	{
-		float x = Random.Range(0f, 0.8f);
-		float y = Random.Range(0f, 0.8f);
-		Camera.main.transform.position += new Vector3(x, y, 0);
-		yield return new WaitForSeconds(0.1f);
-		Camera.main.transform.position = cameraPos;		// 카메라 위치 원상복구
-	}
+    {
+        float x = Random.Range(0f, 0.8f);
+        float y = Random.Range(0f, 0.8f);
+        Camera.main.transform.position += new Vector3(x, y, 0);
+        yield return new WaitForSeconds(0.1f);
+        Camera.main.transform.position = cameraPos;     // 카메라 위치 원상복구
+    }
 
 
-	void DecreaseHP()
-	{
-		GameManager.UI.TakeDamageHP(10);	// 10씩 데미지 받으면서 hp가 감소
-		if (GameManager.UI.curHP <= 0)
-		{
-			gameObject.GetComponent<PlayerDie>().Die();
-
-		}
-	}
+    void DecreaseHP()
+    {
+        GameManager.UI.TakeDamageHP(10);    // 10씩 데미지 받으면서 hp가 감소
+        if (GameManager.UI.curHP <= 0)
+        {
+            gameObject.GetComponent<PlayerDie>().Die();
+        }
+    }
 }
