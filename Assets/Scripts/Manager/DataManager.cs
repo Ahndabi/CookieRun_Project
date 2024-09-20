@@ -1,9 +1,6 @@
 using Firebase.Database;
 using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -114,21 +111,18 @@ public class DataManager : MonoBehaviour
     IEnumerator LoadDataRoutine()
     {
         var serverData = dbRef.Child("users").Child(userId).GetValueAsync();
-        yield return new WaitUntil(predicate: () => serverData.IsCompleted);    // 요청한 것이 완료될 때까지 기다려야함 
 
-        print("process is complete");
+        // yield return new WaitUntil: 제공된 대리자의 반환 값이 true가 될 때까지 대기
+        yield return new WaitUntil(predicate: () => serverData.IsCompleted);    // 요청한 것이 완료될 때까지 기다려야함 
 
         DataSnapshot snapshot = serverData.Result;
         string jsonData = snapshot.GetRawJsonValue();
 
         if (jsonData != null)
-        {
-            print("server data found");
             dts = JsonUtility.FromJson<dataToSave>(jsonData);
-        }
         else
         {
-            print("no data found");
+            Debug.Log("no data found");
         }
     }
 
@@ -156,8 +150,6 @@ public class DataManager : MonoBehaviour
         var serverData = dbRef.Child("users").Child(_userID).GetValueAsync();
         yield return new WaitUntil(predicate: () => serverData.IsCompleted);    // 요청한 것이 완료될 때까지 기다려야함 
 
-        print("process is complete");
-
         DataSnapshot snapshot = serverData.Result;
 
         if (snapshot.Exists == false)   // 이전의 데이터가 없었을 경우(닉네임 세팅 해야함) -> 회원가입만 하고 닉네임 설정 안 했을 경우
@@ -176,8 +168,6 @@ public class DataManager : MonoBehaviour
     {
         var serverData = dbRef.Child("nicknames").Child(_NickName).GetValueAsync();
         yield return new WaitUntil(predicate: () => serverData.IsCompleted);    // 요청한 것이 완료될 때까지 기다려야함 
-
-        print("process is complete");
 
         DataSnapshot snapshot = serverData.Result;
 

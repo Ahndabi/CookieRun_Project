@@ -5,7 +5,6 @@ public class BackGround : MonoBehaviour
 	[SerializeField] public float speed;	// 배경 스크롤링 속도
 	new MeshRenderer renderer;
 	float x = 0;
-	float y = 0;
 
 	private void Awake()
 	{
@@ -14,10 +13,7 @@ public class BackGround : MonoBehaviour
 
 	private void Update()
 	{
-		//if (PlayerBase.isDie == false)
-		//{
-			renderer.material.mainTextureOffset = new Vector2(x, y);
-			x = x + Time.deltaTime * speed;
-		//}
+		renderer.material.mainTextureOffset = new Vector2(x, 0);
+		x = x + Time.deltaTime * speed;
 	}
 }

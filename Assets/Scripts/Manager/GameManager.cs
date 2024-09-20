@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Resources;
-using TMPro.EditorUtilities;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -35,7 +32,15 @@ public class GameManager : MonoBehaviour
 		InitManagers();
 	}
 
-	private void OnDestroy()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
+    }
+
+    private void OnDestroy()
 	{
 		if (instance == this)
 			instance = null;
