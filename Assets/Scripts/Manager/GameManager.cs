@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,14 +9,12 @@ public class GameManager : MonoBehaviour
 	static PoolManager poolManager;
 	static ResourceManager resource;
 	static UIManager uiManager;
-	//static AuthManager auth;
 
 	public static GameManager Instance { get { return instance; } }
 	public static DataManager Data { get { return dataManager; } }
 	public static PoolManager Pool { get { return poolManager; } }
 	public static ResourceManager Resource { get { return resource; } }
 	public static UIManager UI { get { return uiManager; } }
-	//public static AuthManager Auth { get { return auth; } }
 
 	private void Awake()
 	{
@@ -66,10 +63,5 @@ public class GameManager : MonoBehaviour
 		uiObj.name = "UIManager";
 		uiObj.transform.parent = transform;
 		uiManager = uiObj.AddComponent<UIManager>();
-
-		// GameObject authObj = new GameObject();
-		// authObj.name = "AuthManager";
-		// authObj.transform.parent = transform;
-		// auth = authObj.AddComponent<AuthManager>();
 	}
 }

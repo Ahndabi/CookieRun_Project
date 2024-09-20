@@ -1,4 +1,3 @@
-using Firebase.Auth;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -10,7 +9,7 @@ public class LobbySceneUI : SceneUI
     [SerializeField] GameObject setNickNameUI;     // 로그인 후 닉네임 입력하는 창
     [SerializeField] GameObject menuUI;     // 로그인 후 게임시작 가능한 창
     [SerializeField] GameObject selectPlayerUI;
-    [SerializeField] AuthManager authManager;   // 로그인, 회원가입, 로그아웃에 대한 기능들이 있는 스크립트4
+    [SerializeField] AuthManager authManager;   // 로그인, 회원가입, 로그아웃에 대한 기능들이 있는 스크립트
 
     [SerializeField] TMP_InputField email_Text;  // 입력된 이메일 텍스트
     [SerializeField] TMP_InputField pw_Text;     // 입력된 비밀번호 텍스트

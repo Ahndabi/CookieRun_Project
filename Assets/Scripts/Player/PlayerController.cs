@@ -4,14 +4,19 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 	[SerializeField] PlayerBase playerBase;
-
-	[SerializeField] float jumpSpeed;
+	float jumpSpeed = 20;
 	bool isGrounded = true;
 	bool oneJump = false;       // 1단 점프를 한 번 했는지
 	public bool isJump = false;
 
-	public AudioClip jumpSound;
-	public AudioClip slideSound;
+    public AudioClip jumpSound;
+    public AudioClip slideSound;
+
+	// 애니메이션 파라미터 string 해싱해놓고 사용
+    static readonly int jump1_animation = Animator.StringToHash("Jump1");
+	static readonly int jump2_animation = Animator.StringToHash("Jump2");
+	static readonly int slide_animation = Animator.StringToHash("Slide");
+	static readonly int move_animation = Animator.StringToHash("Move");
 
 	private void Awake()
 	{
@@ -24,7 +29,7 @@ public class PlayerController : MonoBehaviour
 		// 2단 점프만 가능하도록 
 		if (GroundCheck())       // 1. 바닥이면 점프가능
 		{
-			playerBase.anim.SetTrigger("Jump1");
+			playerBase.anim.SetTrigger(jump1_animation);
 			isJump = true;
 			oneJump = true;      // 1단점프 true
 			playerBase.rb.velocity = Vector2.up * jumpSpeed;
@@ -32,15 +37,11 @@ public class PlayerController : MonoBehaviour
 		}
 		else if (!GroundCheck() && oneJump)     // 1. 공중이면서	2. 1단점프를 한 경우
 		{
-            playerBase.anim.SetTrigger("Jump2");
+            playerBase.anim.SetTrigger(jump2_animation);
 			isJump = true;
 			oneJump = false;     // 1단 점프는 이미 했음
 			playerBase.rb.velocity = Vector2.up * jumpSpeed;       // 한 번 더 점프 가능
 			SoundManager.instance.SFXPlay("cookie0001_jump", jumpSound);
-		}
-		else
-		{
-			return;
 		}
 	}
 
@@ -86,12 +87,12 @@ public class PlayerController : MonoBehaviour
 
 	public void Slide()
 	{
-		playerBase.anim.SetTrigger("Slide");
+		playerBase.anim.SetTrigger(slide_animation);
         SoundManager.instance.SFXPlay("cookie0001_slide", slideSound);
     }
 
     public void Move()
 	{
-		playerBase.anim.SetTrigger("Move");
+		playerBase.anim.SetTrigger(move_animation);
 	}
 }

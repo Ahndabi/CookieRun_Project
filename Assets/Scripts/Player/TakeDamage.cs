@@ -77,7 +77,6 @@ public class TakeDamage : MonoBehaviour
             }
             yield return null;
         }
-
         sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1);
         playerBase.isUnDamage = false;
     }

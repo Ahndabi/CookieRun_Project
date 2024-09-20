@@ -1,7 +1,6 @@
 using UnityEngine;
 using Firebase.Auth;
 using System;
-using System.Collections;
 
 public class AuthManager: MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class AuthManager: MonoBehaviour
     FirebaseUser user;  // 인증이 완료된 유저 정보
 
     [SerializeField] LobbySceneUI lobbySceneUI;
-    public Action<bool> LoginState;     // output text랑 연동하기 위함
 
     public void Init()
     {
@@ -32,7 +30,6 @@ public class AuthManager: MonoBehaviour
             if (!signed && user != null)
             {
                 Debug.Log("로그아웃");
-                LoginState?.Invoke(false);
             }
 
             // 로그인을 한 경우
@@ -40,7 +37,6 @@ public class AuthManager: MonoBehaviour
             if (signed)
             {
                 Debug.Log("로그인");
-                LoginState?.Invoke(true);
             }
         }
     }
@@ -95,8 +91,7 @@ public class AuthManager: MonoBehaviour
             isSignedIn = true;
             
             // FirebaseUser newUser = task.Result;
-            AuthResult newUser = task.Result;   // 위의 코드가 오류나서 일단 이렇게 대체
-            // Data에서 함수 자체를 불러오는 건 되는데 코루틴을 호출하는 순간 멈춤..
+            AuthResult newUser = task.Result;   // 위의 코드가 오류나서 이렇게 대체
 
             GameManager.Data.SetUserID(user.UserId);
             Debug.Log("로그인 완료");
