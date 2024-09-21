@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Land : MonoBehaviour
+public class PlayerRoot : MonoBehaviour
 {
+	// 플레이어 하위 자식에 점프하기 위한 발판(콜라이더)이 따로 있기 때문에 스크립트도 따로 만들어줌
+
 	Animator anim;
 	PlayerController playerController;
 
