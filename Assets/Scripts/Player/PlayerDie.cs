@@ -44,6 +44,6 @@ public class PlayerDie : MonoBehaviour
 	{
 		yield return new WaitForSecondsRealtime(2f);
 
-		GameManager.UI.ShowResultUI();
+        GameManager.UI.ShowResultUI();
     }
 }

@@ -13,6 +13,7 @@ public class TakeDamage : MonoBehaviour
 
     [SerializeField] PlayerBase playerBase;
     Vector3 cameraPos;
+    static readonly int takeDamage_animation = Animator.StringToHash("TakeDamage");
 
     private void Start()
     {
@@ -32,8 +33,7 @@ public class TakeDamage : MonoBehaviour
 
                 DecreaseHP();   // HP °¨¼Ò
 
-                playerBase.anim.SetTrigger("TakeDamage");
-
+                playerBase.anim.SetTrigger(takeDamage_animation);
             }
         }
     }

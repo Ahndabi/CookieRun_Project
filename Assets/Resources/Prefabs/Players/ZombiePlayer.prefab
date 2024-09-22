@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2ad5ceb40a954408a00b2e60f47229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGround: 0
 --- !u!1 &8646489253507565264
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBase: {fileID: 1819482098845053361}
+  playerRoot: {fileID: 8035570468973150614}
   isJump: 0
   jumpSound: {fileID: 0}
   slideSound: {fileID: 0}

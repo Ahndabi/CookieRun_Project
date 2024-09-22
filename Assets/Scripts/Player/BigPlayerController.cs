@@ -4,7 +4,8 @@ using UnityEngine;
 public class BigPlayerController : MonoBehaviour, IBiggable
 {
     [SerializeField] PlayerBase playerBase;
-	bool isBig = false;
+    static readonly int Smaller_animation = Animator.StringToHash("Smaller");
+    bool isBig = false;
 
 	public void NoneDamage()	// 플레이어가 커지는 애니메이션에 이벤트로 붙인 함수
 	{
@@ -16,7 +17,7 @@ public class BigPlayerController : MonoBehaviour, IBiggable
 	IEnumerator OriginalSizeRoutine()
 	{
 		yield return new WaitForSeconds(3f);
-        playerBase.anim.SetTrigger("Smaller");     // 원래 상태로 돌아감 (작아짐)
+        playerBase.anim.SetTrigger(Smaller_animation);     // 원래 상태로 돌아감 (작아짐)
 		isBig = false;
 
         StartCoroutine(FlickerPlayerRoutine());
